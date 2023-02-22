@@ -1,0 +1,42 @@
+---
+import "@fontsource/bitter";
+import slugify from "../slugify";
+import "../styles/global.css";
+
+const { title } = Astro.props;
+---
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+        <title>Learn Eberban</title>
+        <meta name="author" content="The ber spua Discord Server">
+        <meta name="description" content="A free and open-source book for studying the constructed language Eberban">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="/favicon.svg">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="theme-color" content="#ffffff">
+    </head>
+    <body>
+        <div class="mx-auto px-2 max-w-3xl">
+            <header>
+                <h1 id={slugify(title)}>
+                    <a href={ `#${slugify(title)}` }>{ title }</a>
+                </h1>
+            </header>
+            <main>
+                <article><slot /></article>
+            </main>
+            <hr>
+            <footer>
+                If you have any questions, head over to the
+                <a href="https://discord.gg/FChFEHEet8">ber spua</a> Discord
+                server. We'd love to see you there 😊
+            </footer>
+        </div>
+    </body>
+</html>

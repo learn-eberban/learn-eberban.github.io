@@ -1,0 +1,56 @@
+---
+interface Props {
+    type: "warning";
+    title: string;
+};
+
+type BlockConfig = {
+    heading: string,
+    styles: string,
+};
+
+const {title, type} = Astro.props;
+
+/*
+  Tailwind doesn't let you do percentage stops idiomatically, 
+  so the the hex of the corresponding -50 colour is used with the percentage.
+*/
+const config: BlockConfig = (() => {
+    switch (type) {
+        case "warning":
+            return { 
+                heading: `🚧 Warning: ${title}`,
+                styles: "from-amber-100 via-[#fffbeb_90%] border-amber-600",
+            };
+    };
+})();
+
+/* 
+  This is a <div> and not a more semantically meaningful element like <aside>
+  because a Block cannot be separated from the content. 
+  Jargon must be explained. Vocbaulary must be introduced.
+*/
+---
+<div class={`block ${config.styles}`}>
+    <p><strong>{config.heading}</strong></p>
+    <slot class="last:mb:0" />
+</div>
+
+<style is:global>
+    @tailwind components;
+    @layer components {
+        .block {
+            @apply bg-gradient-to-b /* from and via is configured*/ to-white;
+            @apply pt-4 px-4 pb-4;
+            @apply my-8;
+            @apply border-solid border-x-2 border-t-4 rounded-t-2xl;
+        }
+        /* 
+          .block has been extracted so that the last paragraph of this <div> 
+          has no margin-bottom 
+        */
+        .block p {
+            @apply last:mb-0;
+        }
+    }
+</style>

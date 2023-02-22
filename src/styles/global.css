@@ -1,0 +1,59 @@
+/* 
+  Ensure @tailwind base is not included again or else global styles will 
+  get messed with 
+*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* GROUPED STYLES */
+    * {
+        @apply font-serif text-gray-700;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-bold;
+    }
+
+    h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+        @apply text-inherit;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, ul, ol, hr, footer {
+        @apply mb-4;
+    }
+    
+    li, p {
+        last:mb-0;
+    }
+
+    /* SINGLE STYLES */
+    
+    h1 {
+        @apply pt-2 text-2xl md:text-3xl;
+    }
+    h2 {
+        @apply text-xl md:text-2xl mt-8;
+    }
+
+    hr {
+        @apply h-1 bg-gray-200 mt-8;
+    }
+
+    a {
+        @apply text-sky-600 hover:underline underline-offset-2;
+    }
+
+    li {
+        @apply list-none list-inside mb-2;
+    }
+
+    ul li {
+        @apply list-disc;
+    }
+
+    p {
+        @apply leading-relaxed;
+    }
+}
