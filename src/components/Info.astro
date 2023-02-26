@@ -6,7 +6,7 @@ type InfoConfig = {
 
 interface Props {
     title: string;
-    type: "warning";
+    type: "jargon" | "warning";
 };
 const {title, type} = Astro.props;
 
@@ -16,10 +16,19 @@ const {title, type} = Astro.props;
 */
 const config: InfoConfig = (() => {
     switch (type) {
+        case "jargon":
+            const purple50 = "#faf5ff";
+            const purple500 = "#a855f7";
+            return {
+                heading: `🪶 Jargon: ${title}`,
+                styles: `from-purple-100 via-[${purple50}_90%] dark:from-purple-300 dark:via-[${purple500}_90%] dark:to-purple-600 border-purple-600`,
+            };
         case "warning":
+            const amber50 = "#fffbeb";
+            const amber500 = "#f59e0b";
             return { 
                 heading: `🚧 Warning: ${title}`,
-                styles: "from-amber-100 via-[#fffbeb_90%] dark:from-amber-200 dark:via-[#f59e0b_90%] dark:to-amber-600 border-amber-600",
+                styles: `from-amber-100 via-[${amber50}_90%] dark:from-amber-200 dark:via-[${amber500}_90%] dark:to-amber-600 border-amber-600`,
             };
     };
 })();
@@ -51,7 +60,7 @@ const config: InfoConfig = (() => {
         */
         .info p, .info strong {
             @apply last:mb-0 bg-transparent;
-            @apply dark:text-gray-700 dark:bg-transparent;
+            @apply dark:text-black dark:bg-transparent;
         }
     }
 </style>
