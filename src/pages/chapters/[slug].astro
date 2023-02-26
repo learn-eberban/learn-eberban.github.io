@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import slugify from "../../slugify";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+
+export async function getStaticPaths() {
+    const chapterEntries = await getCollection("chapters");
+    return chapterEntries.map(entry => {
+        const slug = slugify(entry.data.title);
+        return {
+            params: { slug }, 
+            props: { entry },
+        };
+    });
+};
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<SiteLayout chapter={entry.data.chapter} title={entry.data.title}><Content /></SiteLayout>

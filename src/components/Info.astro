@@ -1,56 +1,57 @@
 ---
-interface Props {
-    type: "warning";
-    title: string;
-};
-
-type BlockConfig = {
+type InfoConfig = {
     heading: string,
     styles: string,
 };
 
+interface Props {
+    title: string;
+    type: "warning";
+};
 const {title, type} = Astro.props;
 
 /*
   Tailwind doesn't let you do percentage stops idiomatically, 
   so the the hex of the corresponding -50 colour is used with the percentage.
 */
-const config: BlockConfig = (() => {
+const config: InfoConfig = (() => {
     switch (type) {
         case "warning":
             return { 
                 heading: `🚧 Warning: ${title}`,
-                styles: "from-amber-100 via-[#fffbeb_90%] border-amber-600",
+                styles: "from-amber-100 via-[#fffbeb_90%] dark:from-amber-200 dark:via-[#f59e0b_90%] dark:to-amber-600 border-amber-600",
             };
     };
 })();
 
 /* 
   This is a <div> and not a more semantically meaningful element like <aside>
-  because a Block cannot be separated from the content. 
+  because Info cannot be separated from the content. 
   Jargon must be explained. Vocbaulary must be introduced.
 */
 ---
-<div class={`block ${config.styles}`}>
+<div class={`info ${config.styles}`}>
     <p><strong>{config.heading}</strong></p>
-    <slot class="last:mb:0" />
+    <slot class="last:mb:0 via-amber-50" />
 </div>
 
 <style is:global>
     @tailwind components;
     @layer components {
-        .block {
-            @apply bg-gradient-to-b /* from and via is configured*/ to-white;
+        .info {
+            /* from and via is configured, fade to transparent automatically */
+            @apply bg-gradient-to-b;
             @apply pt-4 px-4 pb-4;
             @apply my-8;
-            @apply border-solid border-x-2 border-t-4 rounded-t-2xl;
+            @apply border-solid border-x-2 border-t-4 border-b-0 rounded-t-2xl;
         }
         /* 
           .block has been extracted so that the last paragraph of this <div> 
           has no margin-bottom 
         */
-        .block p {
-            @apply last:mb-0;
+        .info p, .info strong {
+            @apply last:mb-0 bg-transparent;
+            @apply dark:text-gray-700 dark:bg-transparent;
         }
     }
 </style>

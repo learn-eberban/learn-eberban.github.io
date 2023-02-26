@@ -9,15 +9,23 @@
 @layer base {
     /* GROUPED STYLES */
     * {
-        @apply font-serif text-gray-700;
+        @apply font-serif bg-white text-gray-700;
+        @apply dark:text-gray-200 dark:bg-black;
+    }
+
+    html, body {
+        /* must be min height, not fixed, else scroll event does not work  */
+        @apply min-h-screen;
     }
 
     h1, h2, h3, h4, h5, h6 {
         @apply font-bold;
+        @apply scroll-mt-14;
     }
 
     h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
         @apply text-inherit;
+        @apply dark:text-inherit;
     }
 
     h1, h2, h3, h4, h5, h6, p, ul, ol, hr, footer {
@@ -38,11 +46,17 @@
     }
 
     hr {
-        @apply h-1 bg-gray-200 mt-8;
+        @apply h-1 bg-gray-200 border-0 mt-8;
+        @apply dark:bg-gray-700;
     }
 
     a {
-        @apply text-sky-600 hover:underline underline-offset-2;
+        @apply text-sky-600 cursor-pointer hover:underline underline-offset-2;
+        @apply dark:text-sky-400;
+    }
+
+    button {
+        @apply cursor-pointer;
     }
 
     li {
@@ -51,6 +65,10 @@
 
     ul li {
         @apply list-disc;
+    }
+
+    ol li {
+        @apply list-decimal;
     }
 
     p {

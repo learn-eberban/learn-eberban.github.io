@@ -1,15 +1,46 @@
 ---
 import "@fontsource/bitter";
+import { getCollection } from "astro:content";
+import ChapterNav from "../components/ChapterNav.astro";
 import slugify from "../slugify";
 import "../styles/global.css";
 
-const { title } = Astro.props;
+interface Props {
+    chapter: number;
+    title: string;
+};
+const { chapter, title } = Astro.props;
+
+const isHome = chapter === 0;
+const is404 = chapter === -1;
+
+const prevChapter = (await getCollection("chapters", ({ data }) => data.chapter === chapter - 1))[0];
+const nextChapter = (await getCollection("chapters", ({ data }) => data.chapter === chapter + 1))[0];
+const prevHref = (() => {
+    if (isHome || is404) {
+        return undefined;
+    }
+    if (chapter === 1) {
+        return "/";
+    }
+    return `/chapters/${slugify(prevChapter.data.title)}`;
+})();
+const nextHref = nextChapter ? `/chapters/${slugify(nextChapter.data.title)}` : undefined;
+
+const siteName = "Learn Eberban";
+
+const docTitle = (() => {
+    if (isHome) {
+        return siteName;
+    }
+    return [title, siteName].join(" - ");
+})();
 ---
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width-device-width, initial-scale=1">
-        <title>Learn Eberban</title>
+        <title>{docTitle}</title>
         <meta name="author" content="The ber spua Discord Server">
         <meta name="description" content="A free and open-source book for studying the constructed language Eberban">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -22,21 +53,110 @@ const { title } = Astro.props;
         <meta name="theme-color" content="#ffffff">
     </head>
     <body>
-        <div class="mx-auto px-2 max-w-3xl">
-            <header>
-                <h1 id={slugify(title)}>
-                    <a href={ `#${slugify(title)}` }>{ title }</a>
-                </h1>
-            </header>
-            <main>
-                <article><slot /></article>
-            </main>
-            <hr>
-            <footer>
-                If you have any questions, head over to the
-                <a href="https://discord.gg/FChFEHEet8">ber&nbsp;spua</a>
-                Discord server. We'd love to see you there 😊
-            </footer>
+        <ChapterNav activeChapter={chapter} />
+        <div class="max-w-3xl px-2 mx-auto">
+            <div id="topBar" class="top-0 h-12 flex justify-between items-center py-2 border-b-2 border-b-gray-100 dark:border-b-gray-900">
+                <button id="chapterNavToggle" class="h-6">
+                    <svg class="h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
+                        <path fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <span class="h-full text-2xl hidden sm:block">{siteName}</span>
+                <img class="h-full sm:hidden" src="/favicon.svg" />
+                <button id="themeToggle" class="h-full text-xl md:text-2xl">🌛</button>
+            </div>
+            <div class="overflow-y-auto">
+                <header>
+                    <h1 id={slugify(title)}>
+                        <a href={ `#${slugify(title)}` }>{ title }</a>
+                    </h1>
+                </header>
+                <main>
+                    <article><slot /></article>
+                </main>
+                <div class="h-1">
+                    {prevHref && <a class="text-3xl hover:no-underline select-none float-left" href={prevHref}>⬅️</a>}
+                    {nextHref && <a class="text-3xl hover:no-underline select-none float-right" href={nextHref}>➡️</a>}
+                </div>
+                <hr>
+                <footer>
+                    If you have any questions, head over to the
+                    <a href="https://discord.gg/FChFEHEet8">ber&nbsp;spua</a>
+                    Discord server. We'd love to see you there 😊
+                </footer>
+            </div>
         </div>
     </body>
 </html>
+<script is:inline>
+    // Inlined code to stop Flash Of Unstyled Content
+
+    function checkBrowserPrefersDark() {
+        const browserPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (localStorage?.getItem("browserPrefersDark")) {
+            return localStorage.getItem("browserPrefersDark") === "true";
+        }
+        localStorage?.setItem("browserPrefersDark", browserPrefersDark.toString());
+        return browserPrefersDark;
+    }
+
+    document.documentElement.classList.toggle("dark", checkBrowserPrefersDark());
+</script>
+<script>
+    // 🌛
+
+    function handleToggleTheme() {
+        const element = document.documentElement;
+        element.classList.toggle("dark");
+        const isDark = element.classList.contains("dark");
+        localStorage?.setItem("browserPrefersDark", isDark.toString());      
+    }
+
+    document.getElementById("themeToggle")?.addEventListener("click", handleToggleTheme);
+
+    /// bars-3 mini <svg> sourced from https://heroicons.com/
+
+    function handleToggleChapterNav() {
+        const chapterNav = document.querySelector("nav");
+        chapterNav?.classList.toggle("slide-in-show")
+    }
+
+    document.getElementById("chapterNavToggle")?.addEventListener("click", handleToggleChapterNav);
+
+    /*
+      Reveal topBar on scroll-up
+      Hide topBar on scroll-down
+    */
+   
+    let lastScrollHeight = 0;
+    // if topBar doesn't exist then we're really in trouble
+    const topBar = document.getElementById("topBar")!!; 
+    const stickyThreshold = topBar.getBoundingClientRect().height;
+
+    document.addEventListener("scroll", () => {
+        const currentScrollHeight = window.scrollY;
+        const userIsScrollingDown = currentScrollHeight > lastScrollHeight;
+        if (userIsScrollingDown && currentScrollHeight > stickyThreshold) {
+            topBar.classList.add("scroll-down");
+        } else if (!userIsScrollingDown) {
+            topBar.classList.remove("scroll-down");
+            if (currentScrollHeight === 0) {
+                topBar.classList.remove("sticky")
+            } else {
+                topBar.classList.add("sticky")
+            }
+        }
+        lastScrollHeight = currentScrollHeight;
+    });
+</script>
+<style is:global>
+    #topBar {
+        transform: translateY(0);
+        transition: transform 0.3s;
+
+    }
+
+    #topBar.scroll-down {
+        transform: translateY(-100%);
+    }
+</style>

@@ -1,14 +1,14 @@
-import Block from "../components/Block.astro";
+import Info from "../components/Info.astro";
 
 {/* For some reason, the css only renders when SiteLayout is rendered like so */}
 import SiteLayout from "../layouts/SiteLayout.astro";
 
-<SiteLayout title="So, what is Learn Eberban?">
+<SiteLayout chapter={0} title="So, what is Learn Eberban?">
 
-<Block type="warning" title="Work In Progress">
+<Info type="warning" title="Work In Progress">
     As Eberban is a work in progress, so is this course. Expect changes until
     this warning goes away.
-</Block>
+</Info>
 
 This course teaches Eberban up to an intermediate level. If, after having
 completed this course, you were teleported to Eberstan (the country of the

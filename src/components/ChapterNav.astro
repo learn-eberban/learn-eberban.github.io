@@ -1,0 +1,72 @@
+---
+import { getCollection } from "astro:content";
+import slugify from "../slugify";
+const chapterEntries = await getCollection("chapters");
+
+interface Props { activeChapter: number };
+const { activeChapter } = Astro.props;
+
+const anchorStyle = (chapter: number) => `text-inherit dark:text-inherit ${activeChapter === chapter ? "underline" : ""}`;
+---
+<nav class="fixed h-screen pt-2 pl-4 border-r-4 border-gray-200 dark:border-gray-700 slide-in">
+    <ol class="flex flex-col h-full">
+        <li value="0"><a href="/" class={anchorStyle(0)}>Home</a></li>
+        {chapterEntries.map((entry) => 
+            <li>
+                <a href={`/chapters/${slugify(entry.data.title)}`} class={anchorStyle(entry.data.chapter)}>
+                    {entry.data.title}
+                </a>
+            </li>
+        )}
+    </ol>
+</nav>
+<style is:global>
+    * {
+        --nav-width: 11rem;
+    }
+
+    .slide-in {
+        width: var(--nav-width);
+        transform: translateX(-100%);
+        transition: transform 0.5s;
+    }
+
+    .slide-in.slide-in-show {
+        transform: translateX(0);
+    }
+
+    /* Push the neighbour to the right */
+
+    .slide-in + * {
+        position: relative;
+        left: 0;
+        transition: left 0.5s;
+    }
+
+    .slide-in.slide-in-show + * {
+        left: calc(var(--nav-width));
+    }
+
+    /* Inverts styles to show sidebar by default on desktop */
+    /* Decided to use CSS so that transitions wouldn't play on each render */
+
+    @media (min-width: 768px) {
+        .slide-in {
+            transform: translateX(0);
+        }
+
+        .slide-in.slide-in-show {
+            transform: translateX(-100%);
+        }
+
+        .slide-in + * {
+            left: var(--nav-width);
+        }
+
+        .slide-in.slide-in-show + * {
+            position: relative;
+            left: 0;
+            transition: left 0.5s;
+        }
+    }
+</style>
