@@ -1,6 +1,6 @@
 /* 
   Ensure @tailwind base is not included again or else global styles will 
-  get messed with 
+  get messed with. 
 */
 @tailwind base;
 @tailwind components;
@@ -14,7 +14,7 @@
     }
 
     html, body {
-        /* must be min height, not fixed, else scroll event does not work  */
+        /* Must be min height, not fixed, else scroll event does not work.  */
         @apply min-h-screen;
     }
 

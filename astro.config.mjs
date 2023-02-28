@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [mdx(), tailwind()],
   markdown: {
     rehypePlugins: [
-      // rehypeSlug must be present, else autolinkHeadings sees no heading ids
+      // rehypeSlug must be present, else autolinkHeadings sees no heading ids.
       rehypeSlug,
       [autolinkHeadings, { behavior: "wrap", content: {
         type: 'element',

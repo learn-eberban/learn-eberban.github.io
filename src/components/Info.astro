@@ -39,7 +39,7 @@ const config: InfoConfig = (() => {
     @tailwind components;
     @layer components {
         .info {
-            /* from and via is configured, fade to transparent automatically */
+            /* From and via is configured, fade to transparent automatically. */
             @apply bg-gradient-to-b;
             @apply pt-4 px-4 pb-4;
             @apply my-8;
@@ -47,7 +47,7 @@ const config: InfoConfig = (() => {
         }
         /* 
           .block has been extracted so that the last paragraph of this <div> 
-          has no margin-bottom 
+          has no margin-bottom. 
         */
         .info p, .info strong {
             @apply last:mb-0 bg-transparent;

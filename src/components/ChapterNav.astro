@@ -35,7 +35,7 @@ const anchorStyle = (chapter: number) => `text-inherit dark:text-inherit ${activ
         transform: translateX(0);
     }
 
-    /* Push the neighbour to the right */
+    /* Push the neighbour to the right. */
 
     .slide-in + * {
         position: relative;
@@ -47,10 +47,10 @@ const anchorStyle = (chapter: number) => `text-inherit dark:text-inherit ${activ
         left: calc(var(--nav-width));
     }
 
-    /* Inverts styles to show sidebar by default on desktop */
-    /* Decided to use CSS so that transitions wouldn't play on each render */
+    /* Inverts styles to show sidebar by default on desktop. */
+    /* Decided to use CSS so that transitions wouldn't play on each render. */
 
-    @media (min-width: 768px) {
+    @media (min-width: 640px) { /* Target sm screen. */
         .slide-in {
             transform: translateX(0);
         }
