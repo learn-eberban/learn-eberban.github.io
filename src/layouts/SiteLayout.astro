@@ -52,7 +52,7 @@ const docTitle = (() => {
         <meta name="msapplication-TileColor" content="#2b5797">
         <meta name="theme-color" content="#ffffff">
     </head>
-    <body>
+    <body class="preload">
         <ChapterNav activeChapter={chapter} />
         <div class="max-w-3xl px-2 mx-auto">
             <div id="topBar" class="top-0 h-12 flex justify-between items-center py-2 border-b-2 border-b-gray-100 dark:border-b-gray-900">
@@ -91,6 +91,13 @@ const docTitle = (() => {
 <script is:inline>
     // Inlined code to stop Flash Of Unstyled Content.
 
+    /*
+      In this code we make the assumption that certain elements just exist.
+      It's a static site, nothing should go wrong. Famous last words...
+    */
+
+    // 🌛
+
     function checkBrowserPrefersDark() {
         const browserPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         if (localStorage?.getItem("browserPrefersDark")) {
@@ -101,6 +108,26 @@ const docTitle = (() => {
     }
 
     document.documentElement.classList.toggle("dark", checkBrowserPrefersDark());
+
+    /// bars-3 mini <svg> sourced from https://heroicons.com/
+
+    const chapterNav = document.querySelector("nav");
+
+    if (localStorage?.getItem("chapterNavIsToggled")) {
+        handleToggleChapterNav(localStorage.getItem("chapterNavIsToggled") === "true");
+
+    }
+
+    function handleToggleChapterNav(force) {
+
+        const isToggled = chapterNav.classList.toggle("slide-in-show", force);
+        localStorage.setItem("chapterNavIsToggled", isToggled.toString());
+    }
+
+    // Wrapper function to explicitly have zero arguments. No events happening here!
+    document.getElementById("chapterNavToggle")?.addEventListener("click", () => handleToggleChapterNav());
+    // Without this, all initial transitions will still play.
+    window.addEventListener("load", () => document.body.classList.remove("preload"));
 </script>
 <script>
     // 🌛
@@ -112,16 +139,7 @@ const docTitle = (() => {
         localStorage?.setItem("browserPrefersDark", isDark.toString());      
     }
 
-    document.getElementById("themeToggle")?.addEventListener("click", handleToggleTheme);
-
-    /// bars-3 mini <svg> sourced from https://heroicons.com/
-
-    function handleToggleChapterNav() {
-        const chapterNav = document.querySelector("nav");
-        chapterNav?.classList.toggle("slide-in-show")
-    }
-
-    document.getElementById("chapterNavToggle")?.addEventListener("click", handleToggleChapterNav);
+    document.getElementById("themeToggle")?.addEventListener("click", handleToggleTheme);    
 
     /*
       Reveal topBar on scroll-up.
@@ -129,7 +147,6 @@ const docTitle = (() => {
     */
    
     let lastScrollHeight = 0;
-    // if topBar doesn't exist then we're really in trouble
     const topBar = document.getElementById("topBar")!!; 
     const stickyThreshold = topBar.getBoundingClientRect().height;
 
@@ -150,6 +167,10 @@ const docTitle = (() => {
     });
 </script>
 <style is:global>
+    .preload * {
+        transition: none !important;
+    }
+
     #topBar {
         transform: translateY(0);
         transition: transform 0.3s;
