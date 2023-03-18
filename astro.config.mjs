@@ -3,18 +3,20 @@ import autolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
 
+// https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), tailwind()],
+  integrations: [mdx(), react(), tailwind()],
   markdown: {
     rehypePlugins: [
       // rehypeSlug must be present, else autolinkHeadings sees no heading ids.
-      rehypeSlug,
+      rehypeSlug, 
       [autolinkHeadings, { behavior: "wrap", content: {
         type: 'element',
-                tagName: 'span',
-      } }],
-    ],
+        tagName: 'span',
+      }}]
+    ]
   },
   site: "https://learn-eberban.github.io",
 });
