@@ -6,14 +6,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    html, body, .bg-web {
+        /* Transparent by default. */
+        @apply bg-white dark:bg-black;
+    }
+}
 @layer base {
     /* GROUPED STYLES */
-    * {
-        @apply font-serif bg-white text-gray-700;
-        @apply dark:text-gray-200 dark:bg-black;
-    }
-
     html, body {
+        @apply font-serif text-gray-700 dark:text-gray-200;
         /* Must be min height, not fixed, else scroll event does not work.  */
         @apply min-h-screen;
     }
