@@ -1,0 +1,20 @@
+---
+const { src } = Astro.props;
+---
+<audio-button>
+    <audio src={src} preload="auto"></audio>
+    <button>
+       <span class="select-text"><slot /></span>🔉
+    </button>
+</audio-button>
+<script>
+    class AudioButton extends HTMLElement {
+        constructor() {
+            super();
+            const audio = this.querySelector("audio")!!;
+            const button = this.querySelector("button")!!;
+            button.addEventListener("click", () => audio.play());
+        };
+    };
+    customElements.define("audio-button", AudioButton);
+</script>
