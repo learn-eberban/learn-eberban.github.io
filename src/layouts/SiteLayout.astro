@@ -115,11 +115,9 @@ const docTitle = (() => {
 
     if (localStorage?.getItem("chapterNavIsToggled")) {
         handleToggleChapterNav(localStorage.getItem("chapterNavIsToggled") === "true");
-
     }
 
     function handleToggleChapterNav(force) {
-
         const isToggled = chapterNav.classList.toggle("slide-in-show", force);
         localStorage.setItem("chapterNavIsToggled", isToggled.toString());
     }
