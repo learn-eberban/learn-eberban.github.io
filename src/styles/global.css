@@ -74,6 +74,14 @@
         @apply list-decimal;
     }
 
+    li p {
+        /* 
+          Using italics in a markdown-generated list item surrounds it with <p>
+          which is block. 
+        */
+        @apply inline;
+    }
+
     p {
         @apply leading-relaxed;
     }
