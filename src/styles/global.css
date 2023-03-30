@@ -96,6 +96,14 @@
         @apply dark:border-gray-800;
     }
 
+    th {
+        @apply py-1;
+    }
+
+    td, th {
+        @apply px-2;
+    }
+
     tbody tr:nth-child(odd) td,
     tbody tr:nth-child(odd) th {
         @apply bg-gray-100;
