@@ -1,0 +1,31 @@
+---
+import katex from "katex";
+
+export interface Props {
+  block: boolean,
+  formula: string,
+}
+const { block, formula } = Astro.props;
+
+/*
+  Inline by default, as it should require
+  the least amount of effort.
+
+  Using <span> as I had issues with <div>
+  not rendering inline inside a <p>.
+*/
+const blockStyles = "p-2 border-2"
+const blockLight = "bg-sky-200 p border-slate-600 bg-opacity-50 border-opacity-50";
+const blockDark = "dark:bg-blue-400 dark:border-sky-400 dark:bg-opacity-30 dark:border-opacity-30";
+const className = block ? `block my-8 ${[blockStyles, blockLight, blockDark].join(" ")}` : "";
+
+const latex = katex.renderToString(formula, {
+  trust: (context) => context.command === "\\href"
+});
+---
+
+<span class={className}>
+  <slot name="header" />
+  <Fragment set:html={latex} />
+  <slot name="footer" />
+</span>
