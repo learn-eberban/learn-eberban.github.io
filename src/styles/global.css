@@ -1,3 +1,8 @@
+/* Overriding here because it doesn't work in the React components */
+div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
+    cursor: default;
+}
+
 /* 
   Ensure @tailwind base is not included again or else global styles will 
   get messed with. 
