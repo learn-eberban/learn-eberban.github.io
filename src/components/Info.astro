@@ -18,17 +18,17 @@ const config: InfoConfig = (() => {
     switch (type) {
         case "jargon":
             const purple50 = "#faf5ff";
-            const purple500 = "#a855f7";
+            const purple700 = "#7d23ce";
             return {
                 heading: `🪶 Jargon: ${title}`,
-                styles: `from-purple-100 via-[${purple50}_90%] dark:from-purple-300 dark:via-[${purple500}_90%] dark:to-purple-600 border-purple-600`,
+                styles: `from-purple-100 via-[${purple50}_90%] dark:from-purple-500 dark:via-[${purple700}_90%] dark:to-purple-800 border-purple-800`,
             };
         case "warning":
             const amber50 = "#fffbeb";
-            const amber500 = "#f59e0b";
+            const yellow700 = "#a06308";
             return { 
                 heading: `🚧 Warning: ${title}`,
-                styles: `from-amber-100 via-[${amber50}_90%] dark:from-amber-200 dark:via-[${amber500}_90%] dark:to-amber-600 border-amber-600`,
+                styles: `from-amber-100 via-[${amber50}_90%] dark:from-yellow-500 dark:via-[${yellow700}_90%] dark:to-yellow-800 border-yellow-800`,
             };
     };
 })();
@@ -60,7 +60,6 @@ const config: InfoConfig = (() => {
         */
         .info p, .info strong {
             @apply last:mb-0 bg-transparent;
-            @apply dark:text-black dark:bg-transparent;
         }
     }
 </style>

@@ -1,0 +1,226 @@
+---
+chapter: 2
+title: "A Little Logic"
+---
+import Info from "../../components/Info.astro";
+import Latex from "../../components/Latex.astro";
+
+Logic is the study of correct reasoning. Among other things, it enables us to
+prove, deduce, and solve puzzles.
+
+This chapter is about Logic because Eberban's jargon is based on Logic jargon.
+
+Naturally, this chapter is really jargon-heavy, so it's alright if it takes a
+while to understand it all. The jargon blocks below are the only bits relevant
+to Eberban; the rest is just extra for experts 🙂
+
+## Propositional Logic
+
+<Info type="jargon" title="Propositions">
+In logic, a proposition is a statement that is true or false.
+</Info>
+
+Propositions appear in everyday speech all the time.
+
+**Everyday propositions v1:**
+
+- It's raining.
+- I walk to work.
+- It's open on Sundays too.
+- She's been to Uluru.
+- This is the top floor.
+
+These propositions are atomic because they cannot be broken down any further. We
+can make propositions more complex with connectives.
+
+**Everyday propositions v2:**
+
+| Connective                   | Name                 | Example                                                                                        | Translation                                                         |
+|:----------------------------:|:--------------------:|:----------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------:|
+| <Latex formula="\land" />    | Conjunction          | <Latex formula="\text{It's raining.} \\ \land \\ \text{I forgot my umbrella.}" />              | It's raining **and** I forgot my umbrella.                          |
+| <Latex formula="\lor" />     | Disjunction          | <Latex formula="\text{I walk to work.} \\ \lor \\ \text{I catch the train to work.}" />        | I walk **or** catch the train to work.                              |
+| <Latex formula="\lnot" />    | Negation             | <Latex formula="\lnot(\text{It's open on Sundays too.})" />                                    | It's **not** open on Sundays either.                                |
+| <Latex formula="\implies" /> | Material Implication | <Latex formula="\text{She's been to Uluru.} \\ \implies \\ \text{She's been to Australia.}" /> | **If** she's been to Uluru, **then** she's been to Australia.       |
+| <Latex formula="\iff" />     | Biconditional        | <Latex formula="\text{This is the top floor.} \\ \iff \\ \text{There's no floor above it.}" /> | This is the top floor **if and only if** there's no floor above it. |
+
+Now that we know of these connections, we can reason. Reasoning also happens all
+the time in everyday speech. Take a look:
+
+- _Has she been to Australia?_
+- _Yeah, she's been to Uluru._
+{/* List separator */}
+- _Finally, no more stairs! Looks like I've made it to the top floor._
+
+You can connect as many propositions as you'd like and still have a proposition.
+For example:
+
+<Latex block formula="(\text{The sky is clear.} ∧ ((\text{It's night.} ∧ ¬(\text{It's too cold.})) ∨ \text{It's the golden hour.})) → \text{The old man goes for a walk.}" />
+
+That's a little wordy, let's denote each constituent proposition as a variable.
+Let's see this complex proposition using variables.
+
+<Info type="jargon" title="Variables">
+A variable is anything that can vary in value. You can use variables to
+represent absolutely anything.
+
+By convention, uppercase variables denote prepositions and predicates while
+lowercase variables denote entities (things that exist).
+</Info>
+
+Given the constituent propositions (choice of letter is arbitrary):
+
+- <Latex formula="S\text{: The sky is clear.}" />
+- <Latex formula="N\text{: It's night.}" />
+- <Latex formula="C\text{: It's too cold.}" />
+- <Latex formula="G\text{: It's the } \href{https://en.wikipedia.org/wiki/Golden_hour_(photography)}{\text{golden hour}}\text{.}" />
+- <Latex formula="W\text{: The old man goes for a walk.}" />
+
+We state the following:
+
+<Latex block formula="(S \land ((N \land \lnot C) \lor G)) \to W" />
+
+Now we can focus on the connectives and start looking at what we can conclude
+from this!
+
+## Predicate Logic
+
+If you play around with propositions, you may start to notice their limitations.
+For example, it's tedious to denote that the travellers Alice, Bob, and Carol
+have all been to Uluru:
+
+- <Latex formula="A\text{: Alice has been to Uluru.}" />
+- <Latex formula="B\text{: Bob has been to Uluru.}" />
+- <Latex formula="C\text{: Carol has been to Uluru.}" />
+
+<Latex block formula="A \land B \land C" />
+
+This is because propositions aren't related unless they're logically connected,
+so we have to write them all out and join them.
+
+Thankfully we can better express this with a predicate. Let's define one for
+travellers who have been to Uluru.
+
+<Info type="jargon" title="Predicates">
+A predicate is a proposition with variables. Predicates are neither true nor
+false until all of their variables are substituted for values.
+</Info>
+
+<Latex block formula="\texttt{HAS\_BEEN\_TO\_ULURU}(t): t \text{ has been to Uluru.}" />
+
+<Latex formula="t" /> is lowercase as it is an entity. So are
+<Latex formula="alice" />, <Latex formula="bob" />, and
+<Latex formula="carol." /> Shortening this predicate to
+<Latex formula="U(t)" />, we substitute <Latex formula="t" /> for our
+travellers:
+
+<Latex block formula="U(alice) \land U(bob) \land U(carol)" />
+
+If we want to talk about more than one entity without using a connective, then
+we have to quantify. Here's how you talk about all the travellers:
+
+<Latex block formula="\forall t \ U(t)">
+    <p slot="header">Domain of discourse: \{Alice, Bob, Carol\}</p>
+    <span class="block mt-4" slot="footer">
+        <span>For all t, where t is all of Alice, Bob, Carol; t has been to Uluru.</span>
+        <br />
+        <span>Simply put: all of Alice, Bob, Carol, have been to Uluru.</span>
+    </span>
+</Latex>
+
+The domain of discourse is the set of all possible values that t can range over.
+So, whenever we quantify, we need the domain of discourse.
+
+<Info type="jargon" title="Sets">
+A set is an unordered collection of distinct things. These things can be
+entities, predicates, or anything else.
+
+Sets are denoted with curly braces \{\}.
+</Info>
+
+Instead of using ∀ (the universal quantifier) to denote all travellers, we can
+use ∃ (the existential quantifier) to speak about just one.
+
+<Latex block formula="\exists t \ U(t)">
+    <p slot="header">Domain of discourse: \{Alice, Bob, Carol\}</p>
+    <span class="block mt-4" slot="footer">
+        <span>For some t, where t is all of Alice, Bob, Carol; t has been to Uluru.</span>
+        <br />
+        <span>Simply put: at least one of Alice, Bob, Carol has been to Uluru.</span>
+    </span>
+</Latex>
+
+Now that we've covered quantification and variables, let's derive predicates
+from our everyday propositions v2.
+
+**Everyday propositions v3:**
+
+<Latex block formula="\exists p \ \texttt{RAINING} \land \texttt{FORGOT\_THEIR\_UMBRELLA}(p)">
+    <p slot="header">Domain of discourse: All people</p>
+</Latex>
+
+<Latex block formula="\exists p \ \texttt{WALKS\_TO\_WORK}(p) \lor \texttt{TRAINS\_TO\_WORK}(p)">
+    <p slot="header">Domain of discourse: All people</p>
+</Latex>
+
+<Latex block formula="\exists d \ \lnot \texttt{IS\_SUNDAY}(d), \ \exists s \ \texttt{IS\_OPEN}(s) \land \lnot(\texttt{IS\_TODAY}(d) \lor \texttt{IS\_TODAY}(sunday))">
+    <p slot="header">Domains of discourse: d: Days, s: Stores</p>
+</Latex>
+
+<Latex block formula="\exists t \ U(t) \implies \texttt{HAS\_BEEN\_TO\_AUSTRALIA}(t)">
+    <p slot="header">Domain of discourse: All travellers</p>
+</Latex>
+
+<Latex block formula="\exists f,t \ \texttt{IS\_TOP\_FLOOR}(t) \iff \lnot \texttt{IS\_ABOVE}(f,t)">
+    <p slot="header">Domain of discourse: Floors</p>
+</Latex>
+
+Look how expressive predicates are!
+
+Notice how a predicate can have any number of variables associated with it.
+These associated variables are called arguments, and a predicate's number of
+them is called arity.
+
+<Info type="jargon" title="Arity">
+Arity refers to the number of arguments a predicate has.
+
+A unary predicate takes one argument, a binary, two; a ternary, three; and an
+n-ary, n-arguments. 
+
+A 0-ary predicate is a proposition. Propositions have no variables, e.g. <Latex formula="\texttt{RAINING}" />.
+
+A unary predicate is also called a property. Properties describe entities, like
+<Latex formula="\texttt{IS\_TALL}(p)" /> or <Latex formula="\texttt{IS\_TOP\_FLOOR}(t)" />.
+
+A binary predicate is also called a relation. We relate two entities to each
+other, like <Latex formula="\texttt{IS\_MOTHER\_OF}(x,y)" /> or <Latex formula="\texttt{IS\_ABOVE}(f,t)" />.
+</Info>
+
+## Higher-order Logic
+
+If we see predicates from Predicate Logic as tools to talk about the world more
+specifically, then these tools are limited. So far, we've only been using
+entities as variables.
+
+With Higher-order Logic, we can use predicates as variables. Through this, we
+can give ourselves more tools.
+
+By design, Eberban translates into higher-order logic and uses this idea of
+making more tools to increase vocabulary and grammatical function.
+
+Let's try to make more tools for ourselves:
+Let's take one of our everyday propositions and make it higher order.
+
+For reference, here is one of our everyday propositions v3.
+
+<Latex block formula="\exists d \ \lnot \texttt{IS\_SUNDAY}(d), \ \exists s \ \texttt{IS\_OPEN}(s) \land \lnot(\texttt{IS\_TODAY}(d) \lor \texttt{IS\_TODAY}(sunday))">
+    <p slot="header">Domains of discourse: d: Days, s: Stores</p>
+</Latex>
+
+Now here is the higher-order version, using the same domain.
+
+<Latex block formula="\texttt{NEITHER\_WHEN}(P,X,Y): P \land \lnot(X \lor Y)" />
+<Latex block formula="\texttt{NEITHER\_OPEN\_ON}(s,x,y): \texttt{NEITHER\_WHEN}(\texttt{IS\_OPEN}(s), \texttt{IS\_TODAY}(x), \texttt{IS\_TODAY}(y)))" />
+<Latex block formula="\exists d \ \lnot \texttt{IS\_SUNDAY}(d), \exists s \ \texttt{NEITHER\_OPEN\_ON}(s,d,sunday)" />
+
+The <Latex formula="\texttt{NEITHER\_WHEN}" /> predicate is generic and can be
+used whenever you find yourself using the word neither (or words not either).

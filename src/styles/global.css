@@ -74,6 +74,14 @@
         @apply list-decimal;
     }
 
+    li p {
+        /* 
+          Using italics in a markdown-generated list item surrounds it with <p>
+          which is block. 
+        */
+        @apply inline;
+    }
+
     p {
         @apply leading-relaxed;
     }
@@ -86,6 +94,14 @@
     table, td, th {
         @apply border-2 border-solid border-gray-200;
         @apply dark:border-gray-800;
+    }
+
+    td, th {
+        @apply px-2;
+    }
+
+    th {
+        @apply py-1;
     }
 
     tbody tr:nth-child(odd) td,
