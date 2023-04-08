@@ -8,7 +8,7 @@ const { activeChapter } = Astro.props;
 
 const anchorStyle = (chapter: number) => `text-inherit dark:text-inherit ${activeChapter === chapter ? "underline" : ""}`;
 ---
-<nav class="fixed h-screen pt-2 pl-4 border-r-4 border-gray-200 dark:border-gray-700 slide-in">
+<nav class="fixed h-screen pt-2 pl-4 bg-web z-10 border-r-4 border-gray-200 dark:border-gray-700 slide-in">
     <ol class="flex flex-col h-full">
         <li value="0"><a href="/" class={anchorStyle(0)}>Home</a></li>
         {chapterEntries.map((entry) => 

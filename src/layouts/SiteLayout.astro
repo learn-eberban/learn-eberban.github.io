@@ -43,26 +43,26 @@ const docTitle = (() => {
         <title>{docTitle}</title>
         <meta name="author" content="The ber spua Discord Server">
         <meta name="description" content="A free and open-source book for studying the constructed language Eberban">
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="icon" href="/favicon.svg">
+        <link rel="apple-touch-icon" sizes="180x180" href="/logo/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16x16.png">
+        <link rel="icon" href="/logo/favicon.svg">
         <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="mask-icon" href="/logo/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#2b5797">
         <meta name="theme-color" content="#ffffff">
     </head>
     <body class="preload">
         <ChapterNav activeChapter={chapter} />
         <div class="max-w-3xl px-2 mx-auto">
-            <div id="topBar" class="top-0 h-12 flex justify-between items-center py-2 border-b-2 border-b-gray-100 dark:border-b-gray-900">
+            <div id="topBar" class="top-0 h-12 flex justify-between items-center py-2 bg-web z-20 border-b-2 border-b-gray-100 dark:border-b-gray-900">
                 <button id="chapterNavToggle" class="h-6">
                     <svg class="h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
                         <path fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
                     </svg>
                 </button>
                 <span class="h-full text-2xl hidden sm:block">{siteName}</span>
-                <img class="h-full sm:hidden" src="/favicon.svg" />
+                <img class="h-full sm:hidden" src="/logo/favicon.svg" />
                 <button id="themeToggle" class="h-full text-xl md:text-2xl">🌛</button>
             </div>
             <div class="overflow-y-auto">
@@ -115,11 +115,9 @@ const docTitle = (() => {
 
     if (localStorage?.getItem("chapterNavIsToggled")) {
         handleToggleChapterNav(localStorage.getItem("chapterNavIsToggled") === "true");
-
     }
 
     function handleToggleChapterNav(force) {
-
         const isToggled = chapterNav.classList.toggle("slide-in-show", force);
         localStorage.setItem("chapterNavIsToggled", isToggled.toString());
     }

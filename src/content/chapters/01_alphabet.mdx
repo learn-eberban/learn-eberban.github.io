@@ -2,10 +2,171 @@
 chapter: 1
 title: "The Alphabet"
 ---
+import AudioButton from "../../components/AudioButton.astro";
 import Info from "../../components/Info.astro";
 
-<Info type="warning" title="Work In Progress">
-    This page is incomplete!
-</Info>
+{/* We don't want smartypants converting this apostrophe. */}
+export const wordBoundaryMarker = "'";
 
 Behold, the alphabet!
+
+<p>
+  <span class="text-orange-600 dark:text-orange-200">h</span>
+  <span class="text-cyan-600 dark:text-cyan-200">nrlmpbfvtdszcjkg</span>
+  <span class="text-fuchsia-600 dark:text-fuchsia-200">ieaou</span>
+  <code class="text-green-600 dark:text-green-400">{wordBoundaryMarker}</code>
+</p>
+
+It is comprised of
+<span class="text-cyan-600 dark:text-cyan-200">16 consonants</span>,
+<span class="text-fuchsia-600 dark:text-fuchsia-200">5 vowels</span>,
+<span class="text-orange-600 dark:text-orange-200">h</span> and <code class="text-green-600 dark:text-green-400">{wordBoundaryMarker}</code>
+(the word-boundary-marker). This comes to a grand total of 23 letters.
+
+## Pronunciation
+
+Eberban is phonetic, that is, each letter is pronounced only one way. Here is
+how:
+
+| Letter | Pronunciation                                                                  | IPA |
+|:------:|:------------------------------------------------------------------------------:|:---:|
+|   h    | <AudioButton src="/audio/alphabet/01_h.mp3"><strong>ihi</strong></AudioButton> | [h] |
+| &nbsp; |                                                                                |     |
+|   n    | <AudioButton src="/audio/alphabet/02_n.mp3"><strong>n</strong>u</AudioButton>  | [n] |
+|   r    | <AudioButton src="/audio/alphabet/03_r.mp3"><strong>r</strong>i</AudioButton>  | [ɣ] |
+|   l    | <AudioButton src="/audio/alphabet/04_l.mp3"><strong>l</strong>u</AudioButton>  | [l] |
+| &nbsp; |                                                                                |     |
+|   m    | <AudioButton src="/audio/alphabet/05_m.mp3"><strong>m</strong>i</AudioButton>  | [m] |
+|   p    | <AudioButton src="/audio/alphabet/06_p.mp3"><strong>p</strong>i</AudioButton>  | [p] |
+|   b    | <AudioButton src="/audio/alphabet/07_b.mp3"><strong>b</strong>u</AudioButton>  | [b] |
+|   f    | <AudioButton src="/audio/alphabet/08_f.mp3"><strong>f</strong>i</AudioButton>  | [f] |
+|   v    | <AudioButton src="/audio/alphabet/09_v.mp3"><strong>v</strong>u</AudioButton>  | [v] |
+|   t    | <AudioButton src="/audio/alphabet/10_t.mp3"><strong>t</strong>i</AudioButton>  | [t] |
+|   d    | <AudioButton src="/audio/alphabet/11_d.mp3"><strong>d</strong>u</AudioButton>  | [d] |
+|   s    | <AudioButton src="/audio/alphabet/12_s.mp3"><strong>s</strong>i</AudioButton>  | [s] |
+|   z    | <AudioButton src="/audio/alphabet/13_z.mp3"><strong>z</strong>u</AudioButton>  | [z] |
+|   c    | <AudioButton src="/audio/alphabet/14_c.mp3"><strong>c</strong>i</AudioButton>  | [ʃ] |
+|   j    | <AudioButton src="/audio/alphabet/15_j.mp3"><strong>j</strong>u</AudioButton>  | [ʒ] |
+|   k    | <AudioButton src="/audio/alphabet/16_k.mp3"><strong>k</strong>i</AudioButton>  | [k] |
+|   g    | <AudioButton src="/audio/alphabet/17_g.mp3"><strong>g</strong>u</AudioButton>  | [ɡ] |
+| &nbsp; |                                                                                |     |
+|   i    | <AudioButton src="/audio/alphabet/18_i.mp3"><strong>i</strong></AudioButton>   | [i] |
+|   e    | <AudioButton src="/audio/alphabet/19_e.mp3"><strong>e</strong></AudioButton>   | [ɛ] |
+|   a    | <AudioButton src="/audio/alphabet/20_a.mp3"><strong>a</strong></AudioButton>   | [a] |
+|   o    | <AudioButton src="/audio/alphabet/21_o.mp3"><strong>o</strong></AudioButton>   | [o] |
+|   u    | <AudioButton src="/audio/alphabet/22_u.mp3"><strong>u</strong></AudioButton>   | [u] |
+| &nbsp; |                                                                                |     |
+|  `'`   | <AudioButton src="/audio/alphabet/23_'.mp3"><strong>uhu</strong></AudioButton> | (.) |
+
+<Info type="jargon" title="IPA">
+The IPA (International Phonetic Alphabet) is a set of unique symbols designed
+to denote all the sounds of human speech.
+
+All IPA notation on this site will be surrounded with [] or ().
+</Info>
+
+As you can see, the single quote character represents the word-boundary-marker.
+There is no preference as to which kind of single quote you use, any
+similarly-looking ones are accepted. Also, if you're not spelling `'` out loud,
+then it is pronounced as a pause, not "uhu".
+
+Also, note the combination of the letters "tc" and "dj" match the English
+pronunciation of the letters "ch" and "j" respectively.
+
+We weren't kidding when we said that each letter is pronounced. Each vowel is
+pronounced separately too, _they are not combined_. Try doing this with the word
+"coin". You may have to practise slowing your pronunciation down if you're not
+used to it!
+
+### Alternative pronunciations
+
+If the word-boundary-marker is before a word that starts with a vowel, then you
+have the option of pronouncing it as a glottal stop (heard in the word "uh-oh").
+
+You may use glides <AudioButton src="/audio/alt/glide_y.mp3">[j]</AudioButton>
+and <AudioButton src="/audio/alt/glide_w.mp3">[w]</AudioButton> alongside or
+instead of vowels i and u. 
+
+An English speaker will likely struggle with pronouncing the letter r. There are
+two alternative trill pronunciations:
+
+- The Spanish r <AudioButton src="/audio/alt/r_spanish.mp3">[r]</AudioButton>
+- The French r <AudioButton src="/audio/alt/r_french.mp3">[ʀ]</AudioButton>
+
+If you're struggling with pronunciation, just remember that as long as the
+uttered sound is close to the preferred or listed alternative and cannot be
+confused for another letter, then you're doing just fine.
+
+## The roles of the letters
+
+The alphabet was ordered to be culturally neutral. The order also groups the
+letters into different types.
+
+The letter h stands in its own role. It is only seen between vowels and neither
+begins nor ends words.
+
+The next three letters (n, r, and l) are sonorants. This is an important
+distinction. Sonorants only appear between two vowels or at the end of a word.
+
+<Info type="jargon" title="Sonorants">
+In phonetics, a sonorant is any sound in speech that can be continuously
+produced without interruption. The sonorants in the Eberban alphabet are n, r,
+l, m, and all the vowels.
+
+An Eberban sonorant refers to any of the three consonants n, r, or l.
+Henceforth, the usage of "sonorant" will refer to an Eberban sonorant.
+</Info>
+
+Then there are the consonants. Except for m, the rest of the consonants are
+grouped into unvoiced and voiced pairs. This ranges from sounds made in the
+front of the mouth (p, b) to sounds made at the back (k, g).
+
+You may have even noticed the spellings of the unvoiced consonants end in i, and
+the spellings of the voiced consonants end in u.
+
+<Info type="jargon" title="Voicing Consonants">
+Consonants are either voiced or unvoiced. As you may have guessed, voiced
+consonants are made with the voice, and unvoiced consonants are made just with
+air. 
+
+Try putting your hand up to your throat and uttering some consonants. You will
+feel the vibrations from your voice box when the consonant is voiced!
+</Info>
+
+The role of vowels is twofold:
+
+- Their single-lettered presence or absence at the beginning of a word denotes
+its word type.
+- Except for "i", they are used to denote predicate places.
+
+The word-boundary-marker is the only punctuation used in Eberban. It is only
+required under a couple of circumstances, and may not be used twice in a row.
+
+Vowels at the beginning of words and usage of the word-boundary-marker will be
+explained when we learn about the [Word&nbsp;Types](/chapters/word-types).
+
+## Informally-written Eberban
+
+Eberban makes allowances for more expression in informal writing.
+
+Except for foreign text quotes, Eberban text, as you have seen, is written in
+lowercase. Uppercase can be used informally to convey volume,
+such as when yelling.
+
+Repeated letters in succession are considered the same as a single letter that
+was repeated. Such repetition is used informally to denote the spoken length of
+sounds.
+
+This is what it looks like in English:
+
+- heyyyyyyyyyy
+- thaaaaaaaanks
+
+And in Eberban:
+
+- pou ga snaaaaaaaaa (Welcooooome)
+- nnnnnnnnn (uhhhhhhhh)
+
+Although any character not in the alphabet is considered a space, punctuation
+from other languages can be used informally. This includes but is not
+limited to `"` around quotes, and `.` at the end of sentences.

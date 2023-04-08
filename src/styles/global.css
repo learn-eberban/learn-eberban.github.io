@@ -6,14 +6,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    html, body, .bg-web {
+        /* Transparent by default. */
+        @apply bg-white dark:bg-black;
+    }
+}
 @layer base {
     /* GROUPED STYLES */
-    * {
-        @apply font-serif bg-white text-gray-700;
-        @apply dark:text-gray-200 dark:bg-black;
-    }
-
     html, body {
+        @apply font-serif text-gray-700 dark:text-gray-200;
         /* Must be min height, not fixed, else scroll event does not work.  */
         @apply min-h-screen;
     }
@@ -41,6 +43,7 @@
     h1 {
         @apply pt-2 text-2xl md:text-3xl;
     }
+
     h2 {
         @apply text-xl md:text-2xl mt-8;
     }
@@ -73,5 +76,21 @@
 
     p {
         @apply leading-relaxed;
+    }
+
+    table {
+        @apply w-full my-8;
+        @apply border-collapse;
+    }
+
+    table, td, th {
+        @apply border-2 border-solid border-gray-200;
+        @apply dark:border-gray-800;
+    }
+
+    tbody tr:nth-child(odd) td,
+    tbody tr:nth-child(odd) th {
+        @apply bg-gray-100;
+        @apply dark:bg-gray-900;
     }
 }
