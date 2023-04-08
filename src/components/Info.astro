@@ -6,7 +6,7 @@ type InfoConfig = {
 
 interface Props {
     title: string;
-    type: "jargon" | "warning";
+    type: "examples" | "jargon" | "warning";
 };
 const {title, type} = Astro.props;
 
@@ -16,6 +16,13 @@ const {title, type} = Astro.props;
 */
 const config: InfoConfig = (() => {
     switch (type) {
+        case "examples":
+            const green50 = "#ddf1f3";
+            const green700 = "#15803d";
+            return {
+                heading: `✍️ Examples:`,
+                styles: `from-green-100 via-[${green50}_90%] dark:from-green-500 dark:via-[${green700}_90%] dark:to-green-800 border-green-800`,
+            }
         case "jargon":
             const purple50 = "#faf5ff";
             const purple700 = "#7d23ce";
