@@ -18,24 +18,24 @@ const config: InfoConfig = (() => {
     switch (type) {
         case "examples":
             const green50 = "#ddf1f3";
-            const green700 = "#15803d";
+            const green800 = "#16663a";
             return {
                 heading: `✍️ Examples:`,
-                styles: `from-green-100 via-[${green50}_90%] dark:from-green-500 dark:via-[${green700}_90%] dark:to-green-800 border-green-800`,
+                styles: `from-green-100 via-[${green50}_90%] dark:from-green-700 dark:via-[${green800}_90%] dark:to-green-900 border-green-900`,
             }
         case "jargon":
             const purple50 = "#faf5ff";
-            const purple700 = "#7d23ce";
+            const purple800 = "#6925aa";
             return {
                 heading: `🪶 Jargon: ${title}`,
-                styles: `from-purple-100 via-[${purple50}_90%] dark:from-purple-500 dark:via-[${purple700}_90%] dark:to-purple-800 border-purple-800`,
+                styles: `from-purple-100 via-[${purple50}_90%] dark:from-purple-700 dark:via-[${purple800}_90%] dark:to-purple-900 border-purple-900`,
             };
         case "warning":
             const amber50 = "#fffbeb";
-            const yellow700 = "#a06308";
             return { 
                 heading: `🚧 Warning: ${title}`,
-                styles: `from-amber-100 via-[${amber50}_90%] dark:from-yellow-500 dark:via-[${yellow700}_90%] dark:to-yellow-800 border-yellow-800`,
+                // For some bizarre reason, using these non-tailwind colours only works as literal values
+                styles: `from-amber-100 via-[${amber50}_90%] dark:text-black dark:from-[#bfab0b] dark:to-[#8c7d08] border-[#8c7d08]`,
             };
     };
 })();
