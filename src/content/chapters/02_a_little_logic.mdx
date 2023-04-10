@@ -72,7 +72,7 @@ Given the constituent propositions (choice of letter is arbitrary):
 - <Latex formula="S\text{: The sky is clear.}" />
 - <Latex formula="N\text{: It's night.}" />
 - <Latex formula="C\text{: It's too cold.}" />
-- <Latex formula="G\text{: It's the } \href{https://en.wikipedia.org/wiki/Golden_hour_(photography)}{\text{golden hour}}\text{.}" />
+- <Latex formula="G\text{: It's the } \href{https://en.wikipedia.org/wiki/Golden_hour_(photography)}{\text{golden&nbsp;hour}}\text{.}" />
 - <Latex formula="W\text{: The old man goes for a walk.}" />
 
 We state the following:
@@ -219,8 +219,8 @@ For reference, here is one of our everyday propositions v3.
 Now here is the higher-order version, using the same domain.
 
 <Latex block formula="\texttt{NEITHER\_WHEN}(P,X,Y): P \land \lnot(X \lor Y)" />
-<Latex block formula="\texttt{NEITHER\_OPEN\_ON}(s,x,y): \texttt{NEITHER\_WHEN}(\texttt{IS\_OPEN}(s), \texttt{IS\_TODAY}(x), \texttt{IS\_TODAY}(y)))" />
-<Latex block formula="\exists d \ \lnot \texttt{IS\_SUNDAY}(d), \exists s \ \texttt{NEITHER\_OPEN\_ON}(s,d,sunday)" />
+<Latex block formula="\texttt{NEITHER\_OPEN\_ON}(s,x,y): \texttt{NEITHER\_WHEN}(\texttt{IS\_OPEN}(s), \allowbreak \texttt{IS\_TODAY}(x), \texttt{IS\_TODAY}(y)))" />
+<Latex block formula="\exists d \ \lnot \texttt{IS\_SUNDAY}(d), \exists s \ \allowbreak \texttt{NEITHER\_OPEN\_ON}(s,d,sunday)" />
 
 The <Latex formula="\texttt{NEITHER\_WHEN}" /> predicate is generic and can be
 used whenever you find yourself using the word neither (or words not either).
