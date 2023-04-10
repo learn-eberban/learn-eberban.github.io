@@ -11,9 +11,10 @@ See this repo's website for the What, Who, and How.
 
 ## Technologies
 
-This website is built using [Astro](https://astro.build) with 
-[Tailwind](https://tailwindcss.com/) and [MDX](https://mdxjs.com/).
-Tailwind.css
+- [Astro](https://astro.build)
+- [MDX](https://mdxjs.com)
+- [Tailwind](https://tailwindcss.com)
+- [KaTeX](https://katex.org)
 
 This repo uses [gitmoji](https://gitmoji.dev/) for commit messages.
 
