@@ -1,3 +1,8 @@
+/* Overriding here because it doesn't work in the React components */
+div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
+    cursor: default;
+}
+
 /* 
   Ensure @tailwind base is not included again or else global styles will 
   get messed with. 
@@ -48,6 +53,10 @@
         @apply text-xl md:text-2xl mt-8;
     }
 
+    h3 {
+        @apply text-lg md:text-xl mt-6;
+    }
+
     hr {
         @apply h-1 bg-gray-200 border-0 mt-8;
         @apply dark:bg-gray-700;
@@ -74,6 +83,14 @@
         @apply list-decimal;
     }
 
+    ol ol, ul ul {
+        @apply indent-4;
+    }
+
+    ol ol li {
+        @apply [list-style-type:lower-alpha] mb-1;
+    }
+    
     li p {
         /* 
           Using italics in a markdown-generated list item surrounds it with <p>
@@ -84,6 +101,10 @@
 
     p {
         @apply leading-relaxed;
+    }
+
+    p img {
+        @apply mx-auto;
     }
 
     table {

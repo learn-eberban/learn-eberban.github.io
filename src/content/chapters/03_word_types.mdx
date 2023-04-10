@@ -1,0 +1,209 @@
+---
+chapter: 3
+title: "Word Types"
+---
+import Info from "../../components/Info.astro";
+
+This chapter details the types of Eberban words. Here's all of them at a glance:
+
+{/* 
+   TODO replace the following list with ReactFlow, once the issue is fixed
+   https://github.com/wbkd/react-flow/issues/2929
+*/}
+
+- Particles
+- Content Words
+  - Roots
+  - Borrowings
+  - Compounds
+  - Freeform Variables
+
+This chapter also teaches you how to _form_ them. 
+
+Eberban's morphology is designed to be self-segregating. That means we can
+identify the word boundaries just by the letters themselves without ambiguity.
+It's why we have the word-boundary-marker; for the couple of cases that would
+otherwise be ambiguous.
+
+<Info type="jargon" title="Morphology">
+In linguistics, morphology is the study of words and how they are constructed.
+</Info>
+
+When talking about the structure of each word type, "h" is always mentioned
+whenever vowels are. And "h" is only ever seen between vowels. 
+
+Let's coin the term "vhowel" (pronounced "vee-howl") to be the set of vowels and
+the letter h. Note that if there is only one vhowel, then it cannot be h, as h
+must be between vowels.
+
+The use of "vhowel" is here to make explanations easier, it'll only be seen in
+this chapter.
+
+## Particles
+
+Particles facilitate forming an Eberban sentence. With them, you can express
+your thoughts with precision and use your own speaking style.
+
+Particles are grouped into families that share the same pattern. Each family is
+written in all caps using the alphabetically-first particle in its family. For
+instance, `MI` represents `mi`, `mie`, `mio`, `me`, `ma`, etc... as the vowel
+order is "ieaou".
+
+Particles begin with a single non-sonorant consonant and are followed only by
+vhowels.
+
+<Info type="examples">
+- mi: property for "_ is the singular first person/speaker/author, i.e. 'I'"
+- pa: begins an assertive sentence—that which the speaker asserts to be true.
+</Info>
+
+As seen, particles function in one of two ways. Some particles, like the `MI`
+family, act like predicates. Other particles, like the `PA` family, serve a
+grammatical purpose.
+
+## Content Words
+
+Content words express the meaning of an Eberban sentence. All content words are
+predicates.
+
+The structure of content words may include two consonants in a row, but never
+more. These consonant pairs are categorised below:
+
+![A table that distinguishes consonant pairs. There are three types: initial, medial, and invalid pairs.](/consonant-pairs.png "All consonant pairs.")
+
+Legend:
+
+- <span class="text-[#b4c7dc] font-bold dark:drop-shadow-md">Initial pairs</span>
+- <span class="text-[#bf819e] font-bold dark:drop-shadow-md">Medial pairs</span>
+- <span  class="text-[#333333] font-bold dark:drop-shadow-md dark:[text-shadow:1px_1px_gray]">Invalid pairs</span>
+
+Just like the letter h, a medial pair can only appear between two vowels.
+
+### Roots
+
+Roots are the building blocks of the language and express meanings that would be
+too hard or long to convey otherwise. 
+
+There are two options for a root's structure.
+
+**Root Structure Option 1:**
+
+1. Begin the root with a non-sonorant consonant.
+1. Follow it with at least one vhowel.
+1. Two options:
+   1. Either follow it with a sonorant and any number of vhowels.
+   1. Or follow it with a medial pair and at least one vhowel.
+1. Optionally repeat step 3 as much as you'd like.
+1. End.
+
+<Info type="examples">
+- ber: property for "_ is Eberbanic/reflects Eberbanic culture".
+- ban: property for "_ is a language".
+- mana: relation for "_ is a (social) mother of _"
+- viru: relation for "_ sees _"
+</Info>
+
+**Root Structure Option 2:**
+
+1. Begin the root with an initial pair.
+1. End it with at least one vhowel.
+1. Optionally:
+   1. Either end it with a sonorant, and optionally go back to step 2.
+   1. Or follow it with a medial consonant pair and go back to step 2.
+
+<Info type="examples">
+- pcien: property for "_ is bread".
+- ckual: property for "_ is a planet".
+- pra: relation for "_ loves _"
+- gli: relation for "_ is happy that _ is true".
+</Info>
+
+### Borrowings
+
+Borrowings let you import foreign words or names. They are not present in the
+dictionary, but can appear in compounds combined with a root word or particle.
+
+Borrowings begin with `u` and are either surrounded by spaces or
+word-boundary-markers.
+
+**Borrowing Structure:**
+
+1. Prefix the word:
+   1. First, either a space or `'`
+   1. Then `u`
+   1. Append `'` if the first letter will be `u`
+1. Begin it with one of the following:
+   1. A single letter (yes this includes h)
+   1. An initial or medial pair
+   1. A consonant triplet
+1. Optionally continue alternating. You may alternate between vhowels and any of
+the following:
+   1. A single consonant
+   1. An initial or medial pair
+   1. A consonant triplet
+1. End it:
+   1. Either with a vowel
+   1. Or a vowel and a single consonant
+1. Suffix it with a space or `'`.
+
+C1C2C3 is a **consonant triplet** if:
+
+- Either C1C2 is a medial pair and C2C3 is an initial pair.
+- Or C1 is a sonorant and C2C3 is an initial pair.
+
+<Info type="examples">
+- eufranse'stan: property for "_ is France".
+- euinglic'ban: property for "_ is the English language".
+- za u'unicef: property for "_ is named UNICEF".
+</Info>
+
+Borrowings are terminated with the particle `be`, but this is only required when
+talking about two separate borrowings consecutively:
+
+Examples:
+
+- za uhenri ufordo: property for "_ is named Henry Ford".
+- za uhenri be ufordo: property for "_ is named Henry and is a "Ford". (Maybe
+someone named their car?)
+
+Test out your own borrowings using the
+[visual&nbsp;parser](https://eberban.github.io/eberban/web/parser_box_glosser.html)!
+
+### Compounds
+
+Compounds let you combine words to make a new word. You're allowed to combine
+roots, particles, and borrowings (borrowings may only appear as the first word).
+You can't combine compounds.
+
+Compounds start with "e", "a", or "o" and can be written with/without spaces due
+to Eberban's self-segregating morphology.
+
+<Info type="examples">
+- "e" marks a two-word compound: `eberban` (property for "_ is the eberban
+language").
+- "a" marks a three-word compound: `acepobu` (property for "is a dictionary").
+- "o" marks a four-or-more compound. Currently, none exist.
+</Info>
+
+Because we don't know how long a four-or-more compound could be, they must be
+ended with `'o` or ` o`.
+
+### Freeform Variables
+
+Freeform variables let you define predicates with a custom name. For example, a
+freeform variable may be used to define a concept in a fictional world. Freeform
+variables do not appear in the dictionary at all.
+
+Freeform variables follow the same structure as borrowings except that their
+prefix is "i".
+
+<Info type="examples">
+- po ipandoran se espuackuil va unavi: Define Pandora as the home planet of
+the Na'vi.
+
+Now `ipandoran` is the property "_ is the home planet of the Na'vi" (those
+three particles will be explained later).
+</Info>
+
+Unlike borrowings, freeform variables don't merge. Thus, they cannot be
+terminated with `be`.
