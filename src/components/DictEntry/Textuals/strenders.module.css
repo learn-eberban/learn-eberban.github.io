@@ -1,0 +1,25 @@
+span.place {
+    color: white;
+    background-color: #3a87ad;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.74rem;
+    font-weight: bold;
+    line-height: 0.875rem;
+    padding: 0.063rem 0.5rem;
+    border-radius: 0.188rem;
+    margin: 0 0.125rem;
+}
+
+span.place a, span.place a:hover {
+    color: inherit;
+}
+
+span.reference {
+    background-color: #006eff30;
+    border-radius: 0.625rem;
+    padding: 0 0.313rem;
+}
+
+span.reference a {
+    color: #0088cc;
+}
