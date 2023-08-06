@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import slugify from "../slugify";
+import slugify from "../utils/slugify";
 const chapterEntries = await getCollection("chapters");
 
 interface Props { activeChapter: number };
