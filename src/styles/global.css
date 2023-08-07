@@ -57,6 +57,10 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
         @apply text-lg md:text-xl mt-6;
     }
 
+    li h3 {
+        @apply inline; /* Specifically for 05_reading_the_dictionary.mdx*/
+    }
+
     hr {
         @apply h-1 bg-gray-200 border-0 mt-8;
         @apply dark:bg-gray-700;
