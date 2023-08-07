@@ -1,0 +1,43 @@
+---
+chapter: 5
+title: "Reading The Dictionary"
+---
+import DictEntry from "../../components/DictEntry";
+import { Gloss, Heading, Id, Meaning } from "../../components/DictEntry/Textuals";
+import { FamilyButton, TagButton, TransitivityButton } from "../../components/DictEntry/Buttons" 
+
+Alright! Now's a good time to pause and realise we know enough about Eberban and
+it's jargon to learn how to read the
+[dictionary](https://eberban.github.io/eberban/web/dictionary.html).
+
+The dictionary details Eberban's vocabulary and is expected to change as Eberban
+grows. As we believe the dictionary to be essential to your learning journey,
+we've synchronised the dictionary entries in this course with the actual
+dictionary itself.
+
+You've already seen some of these dictionary entries in previous chapters. These
+entries are in inline form, and it's how Learn Eberban will mainly display them.
+They look like this:
+
+- <DictEntry client:load inline id="la6bqysk7n" />
+
+In the dictionary, you'll see them in block form:
+
+<DictEntry client:load id="t98puegdx0" />
+
+- <Heading name={"mua"} />: entry name
+- <Gloss>{"context-apply"}</Gloss>: entry gloss, a terse explanation
+- <FamilyButton>{"MI"}</FamilyButton>: entry family, the type of word. Mua is a
+particle belonging to `MI`.
+- <TransitivityButton isTransitive />: entry transitivity.
+- <TagButton tag={"core"} />: one of the entry tags. Mua is a core part of the
+grammar, so it has the green core tag.
+- <Id>t98puegdx0</Id>: entry ID, guaranteed to not change (but the entry itself may disappear)
+- <Meaning>True if context [E:ma] makes [A:()] true.</Meaning>: entry meaning.
+The meaning explains the word's places in English.
+- **Notes:** additional notes.
+- **Definition:** the entry formally defined. Core words are defined in logic
+notation, other words are defined in Eberban.
+
+This course strictly differentiates between meaning and definition. All words
+have meanings, but only some have definitions.
