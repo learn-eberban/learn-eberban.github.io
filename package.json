@@ -7,24 +7,25 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/react": "^2.1.0",
+    "@astrojs/react": "^3.0.2",
     "@fontsource/bitter": "^4.5.11",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.2.23",
+    "@types/react-dom": "^18.2.8",
     "htmr": "^1.0.2",
-    "localstorage-slim": "^2.4.0",
+    "localstorage-slim": "^2.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "yaml": "^2.2.1"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^0.17.0",
-    "@astrojs/tailwind": "^3.0.1",
-    "astro": "^2.0.14",
+    "@astrojs/mdx": "^1.1.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "astro": "^3.2.0",
     "github-slugger": "^2.0.0",
-    "katex": "^0.16.4",
+    "katex": "^0.16.8",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
-    "tailwindcss": "^3.2.7"
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.2.2"
   }
 }

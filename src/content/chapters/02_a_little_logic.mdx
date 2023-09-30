@@ -72,7 +72,7 @@ Given the constituent propositions (choice of letter is arbitrary):
 - <Latex formula="S\text{: The sky is clear.}" />
 - <Latex formula="N\text{: It's night.}" />
 - <Latex formula="C\text{: It's too cold.}" />
-- <Latex formula="G\text{: It's the } \href{https://en.wikipedia.org/wiki/Golden_hour_(photography)}{\text{golden&nbsp;hour}}\text{.}" />
+- <Latex formula="G\text{: It's the } \href{https://en.wikipedia.org/wiki/Golden_hour_(photography)}{\text{golden\,hour}}\text{.}" />
 - <Latex formula="W\text{: The old man goes for a walk.}" />
 
 We state the following:
@@ -105,7 +105,7 @@ A predicate is a proposition with variables. Predicates are neither true nor
 false until all of their variables are substituted for values.
 </Info>
 
-<Latex block formula="\texttt{HAS\_BEEN\_TO\_ULURU}(t): t \text{ has been to Uluru.}" />
+<Latex block formula="\text{HAS\_BEEN\_TO\_ULURU}(t): t \text{ has been to Uluru.}" />
 
 <Latex formula="t" /> is lowercase as it is an entity. So are
 <Latex formula="alice" />, <Latex formula="bob" />, and
@@ -154,23 +154,23 @@ from our everyday propositions v2.
 
 **Everyday propositions v3:**
 
-<Latex block formula="\exists p \ \texttt{RAINING} \land \texttt{FORGOT\_THEIR\_UMBRELLA}(p)">
+<Latex block formula="\exists p \ \text{RAINING} \land \text{FORGOT\_THEIR\_UMBRELLA}(p)">
     <p slot="header">Domain of discourse: All people</p>
 </Latex>
 
-<Latex block formula="\exists p \ \texttt{WALKS\_TO\_WORK}(p) \lor \texttt{TRAINS\_TO\_WORK}(p)">
+<Latex block formula="\exists p \ \text{WALKS\_TO\_WORK}(p) \lor \text{TRAINS\_TO\_WORK}(p)">
     <p slot="header">Domain of discourse: All people</p>
 </Latex>
 
-<Latex block formula="\exists d \ \lnot \texttt{IS\_SUNDAY}(d), \ \exists s \ \texttt{IS\_OPEN}(s) \land \lnot(\texttt{IS\_TODAY}(d) \lor \texttt{IS\_TODAY}(sunday))">
+<Latex block formula="\exists d \ \lnot \text{IS\_SUNDAY}(d), \ \exists s \ \text{IS\_OPEN}(s) \land \lnot(\text{IS\_TODAY}(d) \lor \text{IS\_TODAY}(sunday))">
     <p slot="header">Domains of discourse: d: Days, s: Stores</p>
 </Latex>
 
-<Latex block formula="\exists t \ U(t) \implies \texttt{HAS\_BEEN\_TO\_AUSTRALIA}(t)">
+<Latex block formula="\exists t \ U(t) \implies \text{HAS\_BEEN\_TO\_AUSTRALIA}(t)">
     <p slot="header">Domain of discourse: All travellers</p>
 </Latex>
 
-<Latex block formula="\exists f,t \ \texttt{IS\_TOP\_FLOOR}(t) \iff \lnot \texttt{IS\_ABOVE}(f,t)">
+<Latex block formula="\exists f,t \ \text{IS\_TOP\_FLOOR}(t) \iff \lnot \text{IS\_ABOVE}(f,t)">
     <p slot="header">Domain of discourse: Floors</p>
 </Latex>
 
@@ -186,13 +186,13 @@ Arity refers to the number of arguments a predicate has.
 A unary predicate takes one argument, a binary, two; a ternary, three; and an
 n-ary, n-arguments. 
 
-A 0-ary predicate is a proposition. Propositions have no variables, e.g. <Latex formula="\texttt{RAINING}" />.
+A 0-ary predicate is a proposition. Propositions have no variables, e.g. <Latex formula="\text{RAINING}" />.
 
 A unary predicate is also called a property. Properties describe entities, like
-<Latex formula="\texttt{IS\_TALL}(p)" /> or <Latex formula="\texttt{IS\_TOP\_FLOOR}(t)" />.
+<Latex formula="\text{IS\_TALL}(p)" /> or <Latex formula="\text{IS\_TOP\_FLOOR}(t)" />.
 
 A binary predicate is also called a relation. We relate two entities to each
-other, like <Latex formula="\texttt{IS\_MOTHER\_OF}(x,y)" /> or <Latex formula="\texttt{IS\_ABOVE}(f,t)" />.
+other, like <Latex formula="\text{IS\_MOTHER\_OF}(x,y)" /> or <Latex formula="\text{IS\_ABOVE}(f,t)" />.
 </Info>
 
 ## Higher-order Logic
@@ -212,15 +212,15 @@ Let's take one of our everyday propositions and make it higher order.
 
 For reference, here is one of our everyday propositions v3.
 
-<Latex block formula="\exists d \ \lnot \texttt{IS\_SUNDAY}(d), \ \exists s \ \texttt{IS\_OPEN}(s) \land \lnot(\texttt{IS\_TODAY}(d) \lor \texttt{IS\_TODAY}(sunday))">
+<Latex block formula="\exists d \ \lnot \text{IS\_SUNDAY}(d), \ \exists s \ \text{IS\_OPEN}(s) \land \lnot(\text{IS\_TODAY}(d) \lor \text{IS\_TODAY}(sunday))">
     <p slot="header">Domains of discourse: d: Days, s: Stores</p>
 </Latex>
 
 Now here is the higher-order version, using the same domain.
 
-<Latex block formula="\texttt{NEITHER\_WHEN}(P,X,Y): P \land \lnot(X \lor Y)" />
-<Latex block formula="\texttt{NEITHER\_OPEN\_ON}(s,x,y): \texttt{NEITHER\_WHEN}(\texttt{IS\_OPEN}(s), \allowbreak \texttt{IS\_TODAY}(x), \texttt{IS\_TODAY}(y)))" />
-<Latex block formula="\exists d \ \lnot \texttt{IS\_SUNDAY}(d), \exists s \ \allowbreak \texttt{NEITHER\_OPEN\_ON}(s,d,sunday)" />
+<Latex block formula="\text{NEITHER\_WHEN}(P,X,Y): P \land \lnot(X \lor Y)" />
+<Latex block formula="\text{NEITHER\_OPEN\_ON}(s,x,y): \text{NEITHER\_WHEN}(\text{IS\_OPEN}(s), \allowbreak \text{IS\_TODAY}(x), \text{IS\_TODAY}(y)))" />
+<Latex block formula="\exists d \ \lnot \text{IS\_SUNDAY}(d), \exists s \ \allowbreak \text{NEITHER\_OPEN\_ON}(s,d,sunday)" />
 
-The <Latex formula="\texttt{NEITHER\_WHEN}" /> predicate is generic and can be
+The <Latex formula="\text{NEITHER\_WHEN}" /> predicate is generic and can be
 used whenever you find yourself using the word neither (or words not either).

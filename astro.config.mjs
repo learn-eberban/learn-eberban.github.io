@@ -7,7 +7,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), react(), tailwind()],
+  integrations: [mdx(), react(), tailwind({applyBaseStyles: false})],
   markdown: {
     rehypePlugins: [
       // rehypeSlug must be present, else autolinkHeadings sees no heading ids.

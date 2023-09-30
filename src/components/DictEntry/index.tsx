@@ -1,5 +1,5 @@
-import { ReactNode, useEffect, useState } from "react";
-import InitGetEntryById, { FormattedDictEntry as EntryType } from "../../utils/dictionary";
+import { type ReactNode, useEffect, useState } from "react";
+import InitGetEntryById, { type FormattedDictEntry as EntryType } from "../../utils/dictionary";
 import { SearchButton, FamilyButton, TransitivityButton, TagButton } from "./Buttons";
 import { Definition, Gloss, Heading, Id, Meaning, Notes } from "./Textuals";
 /* 
