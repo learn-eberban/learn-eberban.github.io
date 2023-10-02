@@ -1,0 +1,27 @@
+---
+interface Props {
+    prefix: string | undefined;
+    spaces: number | undefined;
+};
+
+const { prefix, spaces } = Astro.props;
+const text = prefix === undefined ? "Symbolic representation:" : `${prefix} symbolic representation:`;
+const spaceCount = spaces ?? 4;
+---
+<span>{text}<pre>{Array(spaceCount).join(" ")}</pre><code><slot /></code></span>
+
+<style>
+    span {
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    pre {
+        display: inline;
+        white-space: pre-wrap;
+    }
+
+    code {
+        white-space: pre;
+    }
+</style>

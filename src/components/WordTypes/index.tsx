@@ -29,9 +29,9 @@ const nodes = [
     createNode("2", "output", "Particles",          { x: 200, y: layer2 }),
     createNode("3", "default", "Content Words",     { x: 600, y: layer2 }),
     createNode("4", "output", "Roots",              { x: 400, y: layer3 }),
-    createNode("5", "output", "Compounds",          { x: 500, y: layer4 }),
-    createNode("6", "output", "Borrowings",         { x: 700, y: layer4 }),
-    createNode("7", "output", "Freeform Variables", { x: 800, y: layer3 }),
+    createNode("5", "output", "Borrowings",         { x: 500, y: layer4 }),
+    createNode("6", "output", "Freeform Variables", { x: 700, y: layer4 }),
+    createNode("7", "output", "Compounds",          { x: 800, y: layer3 }),
 ];
 
 const nodeTypes = { custom: CustomNode };

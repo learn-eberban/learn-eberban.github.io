@@ -87,8 +87,13 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
         @apply list-decimal;
     }
 
-    ol ol, ul ul {
+    ol ol,
+    ul ul {
         @apply indent-4;
+    }
+
+    ol ol ol {
+        @apply indent-8
     }
 
     ol ol li {

@@ -5,6 +5,7 @@ module.exports = {
 	theme: {
 		fontFamily: {
 			"serif": ["Bitter", "serif"],
+			"mono": ["Fira Mono"],
 		},
 		extend: {},
 	},

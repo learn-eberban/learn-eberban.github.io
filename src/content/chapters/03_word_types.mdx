@@ -4,6 +4,7 @@ title: "Word Types"
 ---
 import DictEntry from "../../components/DictEntry";
 import Info from "../../components/Info.astro";
+import Symbolic from "../../components/Symbolic.astro"
 import WordTypes from "../../components/WordTypes";
 
 This chapter details the types of Eberban words. Here's all of them at a glance:
@@ -13,13 +14,24 @@ This chapter details the types of Eberban words. Here's all of them at a glance:
 This chapter also teaches you how to _form_ them. 
 
 Eberban's morphology is designed to be self-segregating. That means we can
-identify the word boundaries just by the letters themselves without ambiguity.
-It's why we have the word-boundary-marker; for the couple of cases that would
-otherwise be ambiguous.
+unambiguously parse each word and identify their word boundaries just by looking
+at the letters themselves. This is true for all word types except quotation
+particles, which we'll get to in a later chapter.
 
 <Info type="jargon" title="Morphology">
 In linguistics, morphology is the study of words and how they are constructed.
 </Info>
+
+## Before we begin
+
+### Eberban words
+
+This chapter shows examples of Eberban words and their meanings. How to read
+these meanings is not the focus of this chapter and will be explained when we
+get to the [Fundamentals](../chapters/fundamentals). Right now, we recommend
+focusing only on the morphology.
+
+### Vhowels
 
 When talking about the structure of each word type, "h" is always mentioned
 whenever vowels are. And "h" is only ever seen between vowels. 
@@ -28,12 +40,23 @@ Let's coin the term "vhowel" (pronounced "vee-howl") to be the set of vowels and
 the letter h. Note that if there is only one vhowel, then it cannot be h, as h
 must be between vowels.
 
-**Note 1:** the use of "vhowel" is here to make explanations easier, it'll only
+**Note:** the use of "vhowel" is here to make explanations easier, it'll only
 be seen in this chapter.
 
-**Note 2:** this chapter shows examples of Eberban words and their meanings.
-Don't worry about what `E:` and `A:` means etc., this will be explained later.
-Right now, we recommend focusing only on their morphology.
+### Morphology symbols v1
+
+As we teach you how to form the Eberban word types, English may prove to be a
+little wordy. To complement your understanding, we'll also provide a symbolic
+representation.
+
+|            Symbol             | Meaning                       |
+|:-----------------------------:|:-----------------------------:|
+|              `Ꞓ`              | Non-sonorant consonant        |
+|              `V̌`              | Vhowel                        |
+|              `+`              | 1 or more of the preceding    |
+
+This table is cumulative, we'll see it again with more symbols later in this
+chapter.
 
 ## Particles
 
@@ -48,49 +71,98 @@ order is "ieaou".
 Particles begin with a single non-sonorant consonant and are followed only by
 vhowels.
 
+<Symbolic>ꞒV̌+</Symbolic>
+
 <Info type="examples">
 - <DictEntry client:load inline id="unfcuerxgm" /> {/* mi */}
 - <DictEntry client:load inline id="awzbv8iu8c" /> {/* pa */}
 </Info>
 
 As seen, particles function in one of two ways. Some particles, like the `MI`
-family, act like predicates. Other particles, like the `PA` family, serve a
-grammatical purpose.
+family, are also content words: they express meaning. Other particles, like the 
+`PA` family, serve a grammatical purpose.
 
 ## Content Words
 
 Content words express the meaning of an Eberban sentence. All content words are
 predicates.
 
-The structure of content words may include two consonants in a row, but never
-more. These consonant pairs are categorised below:
+Before we dive into the content words let's look at some morphology features.
 
-![A table that distinguishes consonant pairs. There are three types: initial, medial, and invalid pairs.](/consonant-pairs.png "All consonant pairs.")
+### Consonant pairs
+
+Eberban has categorised consonant pairs into two types: initial and medial.
+Initial pairs are only found at the beginning of a content word, whereas medial
+pairs must be between vowels.
+
+![A table that distinguishes consonant pairs. Initial pairs are filled in blue,
+medial in pink, and invalid in grey. The invalid pairs are labeled with reasons
+why they have been deemed so.](/consonant-pairs.png "All consonant pairs.")
 
 Legend:
 
 - <span class="text-[#b4c7dc] font-bold dark:drop-shadow-md">Initial pairs</span>
 - <span class="text-[#bf819e] font-bold dark:drop-shadow-md">Medial pairs</span>
-- <span  class="text-[#333333] font-bold dark:drop-shadow-md dark:[text-shadow:1px_1px_gray]">Invalid pairs</span>
+- <span class="text-[#333333] font-bold dark:drop-shadow-md dark:[text-shadow:1px_1px_gray]">Invalid pairs</span>
 
-Just like the letter h, a medial pair can only appear between two vowels.
+### Consonant triplets
+
+A consonant triplet is three consonants ABC such that:
+
+- A is NOT a sonorant
+- AB is a medial pair
+- BC is an initial pair
+
+<Info type="examples">
+- kfr
+- dvn
+- gbj
+</Info>
+
+They are only allowed inside roots, and just like the medial pairs and the
+letter h, they must be between vowels.
+
+### Sonorants
+
+Sonorants may either appear between vowels or at the end.
+
+### Morphology symbols v2
+
+|                    Symbol                  | Meaning                       |
+|:------------------------------------------:|:-----------------------------:|
+|                     `Ç`                    | Sonorant                      |
+|                     `Ꞓ`                    | Non-sonorant consonant        |
+|                     `()`                   | Group                         |
+|       <code>(CC)<sub>i</sub></code>        | Initial pair                  |
+|       <code>(CC)<sub>m</sub></code>        | Medial pair                   |
+| <code>(ꞒC<sub>m</sub>C<sub>i</sub>)</code> | Consonant triplet             |
+|                     `V̌`                    | Vhowel                        |
+|                     `\|`                   | Or                            |
+|                     `?`                    | 0 or 1 of the preceding       |
+|                     `*`                    | 0 or more of the preceding    |
+|                     `+`                    | 1 or more of the preceding    |
 
 ### Roots
 
-Roots are the building blocks of the language and express meanings that would be
-too hard or long to convey otherwise. 
+Roots are the building blocks of the language and express meanings that have
+been deemed indecomposable.
 
-There are two options for a root's structure.
+There are two root structures.
 
-**Root Structure Option 1:**
+**Root Structure 1 - Non-sonorant:**
 
 1. Begin the root with a non-sonorant consonant.
 1. Follow it with at least one vhowel.
-1. Two options:
-   1. Either follow it with a sonorant and any number of vhowels.
-   1. Or follow it with a medial pair and at least one vhowel.
+1. &nbsp;
+   1. Three choices:
+      1. Follow with a sonorant.
+      1. Follow with a medial pair.
+      1. Follow with a consonant triplet.
+   1. Follow with at least one vhowel.
 1. Optionally repeat step 3 as much as you'd like.
-1. End.
+1. Optionally end with a sonorant.
+
+<Symbolic>ꞒV̌+( (Ç|(CC)<sub>m</sub>|(ꞒC<sub>m</sub>C<sub>i</sub>))V̌+ )+Ç?</Symbolic>
 
 <Info type="examples">
 - <DictEntry client:load inline id="vz1h8ccnmh" /> {/* ber */}
@@ -99,13 +171,19 @@ There are two options for a root's structure.
 - <DictEntry client:load inline id="r9jofkaowc" /> {/* viru */}
 </Info>
 
-**Root Structure Option 2:**
+**Root Structure Option 2 - Initial pair:**
 
 1. Begin the root with an initial pair.
-1. End it with at least one vhowel.
-1. Optionally:
-   1. Either end it with a sonorant, and optionally go back to step 2.
-   1. Or follow it with a medial consonant pair and go back to step 2.
+1. Follow it with at least one vhowel.
+1. This step is optional, follow it any number of times.
+   1. Three choices:
+      1. Follow with a sonorant.
+      1. Follow with a medial pair.
+      1. Follow with a consonant triplet.
+   1. Follow with at least one vhowel.
+1. Optionally end with a sonorant.
+
+<Symbolic>(CC)<sub>i</sub>V̌+( (Ç|(CC)<sub>m</sub>|(ꞒC<sub>m</sub>C<sub>i</sub>))V̌+ )*Ç?</Symbolic>
 
 <Info type="examples">
 - <DictEntry client:load inline id="0uujkotag5" /> {/* pcien */}
@@ -114,56 +192,139 @@ There are two options for a root's structure.
 - <DictEntry client:load inline id="r7wbdwqgm0" /> {/* gli */}
 </Info>
 
+### Glues
+
+A glue is three consonants ABC such that:
+
+- A is a sonorant
+- BC is an initial pair
+
+Called "glue" because the order of sonorant then initial pair doesn't normally
+stick together.
+
+### Morphology symbols v3
+
+|                    Symbol                  | Meaning                                                                              |
+|:------------------------------------------:|:------------------------------------------------------------------------------------:|
+|                     `C`                    | Consonant                                                                            |
+|                     `Ç`                    | Sonorant                                                                             |
+|                     `Ꞓ`                    | Non-sonorant consonant                                                               |
+|                     `()`                   | Group                                                                                |
+|       <code>(CC)<sub>i</sub></code>        | Initial pair                                                                         |
+|       <code>(CC)<sub>m</sub></code>        | Medial pair                                                                          |
+| <code>(ꞒC<sub>m</sub>C<sub>i</sub>)</code> | Consonant triplet                                                                    |
+|      <code>(ÇCC<sub>i</sub>)</code>        | Glue                                                                                 |
+|       <code>C<sub>any</sub></code>         | Any of: consonant, initial&nbsp;pair, medial&nbsp;pair, consonant&nbsp;triplet, glue |
+|                     `V`                    | Vowel                                                                                |
+|                    `V-i`                   | Any vowel except the letter i                                                        |
+|                    `V-u`                   | Any vowel except the letter u                                                        |
+|                     `V̌`                    | Vhowel                                                                               |
+|                     `B`                    | Boundary: either space or `'`                                                        |
+|                     `\|`                   | Or                                                                                   |
+|                     `?`                    | 0 or 1 of the preceding                                                              |
+|                     `*`                    | 0 or more of the preceding                                                           |
+|                     `+`                    | 1 or more of the preceding                                                           |
+
+This is the completed table.
+
 ### Borrowings
 
 Borrowings let you import foreign words or names. They are not present in the
 dictionary, but can appear in compounds combined with a root word or particle.
 
-Borrowings begin with `u` and are either surrounded by spaces or
-word-boundary-markers.
+Borrowings begin with the letter u and are always between boundaries.
 
-**Borrowing Structure:**
+Just like with roots, there are two borrowing structures.
+
+**Borrowing Structure 1 - Vowel:**
 
 1. Prefix the word:
-   1. First, either a space or `'`
+   1. With a boundary: either a space or `'`
    1. Then `u`
-   1. Append `'` if the first letter will be `u`
-1. Begin it with one of the following:
-   1. A single letter (yes this includes h)
-   1. An initial or medial pair
-   1. A consonant triplet
-1. Optionally continue alternating. You may alternate between vhowels and any of
-the following:
-   1. A single consonant
-   1. An initial or medial pair
-   1. A consonant triplet
-1. End it:
-   1. Either with a vowel
-   1. Or a vowel and a single consonant
-1. Suffix it with a space or `'`.
+1. Begin with a vowel. If the vowel is the letter u, place a boundary before it.
+1. Follow with any number of vhowels.
+1. Six choices:
+   1. The letter h.
+   1. A single consonant.
+   1. An initial pair.
+   1. A medial pair.
+   1. A consonant triplet.
+   1. A glue.
+1. Follow with at least one vhowel.
+1. Optionally go back to step 4.
+1. Optionally end with a single consonant.
+1. Suffix the word with a boundary.
 
-C1C2C3 is a **consonant triplet** if:
+<Symbolic>Bu(Bu|(V-u))V̌*( (C<sub>any</sub>|h)V̌+ )+C?B</Symbolic>
 
-- Either C1C2 is a medial pair and C2C3 is an initial pair.
-- Or C1 is a sonorant and C2C3 is an initial pair.
+**Borrowing Structure 2 - Consonant:**
+
+1. Prefix the word:
+   1. With a boundary: either a space or `'`
+   1. Then `u`
+1. Six choices:
+   1. The letter h.
+   1. A single consonant.
+   1. An initial pair.
+   1. A medial pair.
+   1. A consonant triplet.
+   1. A glue.
+1. Follow with at least one vhowel.
+1. Six choices:
+   1. The letter h.
+   1. A single consonant.
+   1. An initial pair.
+   1. A medial pair.
+   1. A consonant triplet.
+   1. A glue.
+1. Optionally go back to step 3.
+1. Follow with at least one vhowel.
+1. Optionally end with a single consonant.
+1. Suffix the word with a boundary.
+
+<Symbolic>Bu(C<sub>any</sub>|h)(V̌+(C<sub>any</sub>|h))+V̌+C?B</Symbolic>
 
 <Info type="examples">
 - <DictEntry client:load inline id="ql0k4zdkcv" /> {/* e ufranse stan */}
 - <DictEntry client:load inline id="funyada7wl" /> {/* e uinglic ban */}
-- **za u'unicef**: [E:tce p] is named UNICEF".
+- **za u'unicef**: [E:tce p] is named "UNICEF".
 </Info>
 
 Borrowings are terminated with the particle `be`, but this is only required when
 talking about two separate borrowings consecutively:
 
-Examples:
-
-- za uhenri ufordo: [E:tce p] is named Henry Ford.
-- za uhenri be ufordo: [E:tce p] is named Henry and is a "Ford". (Maybe
+<Info type="examples">
+- **za uhenri ufordo**: [E:tce p] is named Henry Ford.
+- **za uhenri be ufordo**: [E:tce p] is named Henry and is a "Ford". (Maybe
 someone named their car?)
+</Info>
 
 Test out your own borrowings using the
 [visual&nbsp;parser](https://eberban.github.io/eberban/web/parser_box_glosser.html)!
+
+### Freeform Variables
+
+Freeform variables let you define predicates with a custom name. One use case
+for this word type would be to define a concept in a fictional world. Words of
+this type do not appear in the dictionary at all.
+
+Freeform variables follow the same structure as borrowings except that their
+prefix is "i". Because of this, we'll skip the instructions and just show the
+symbolic representations.
+
+<Symbolic prefix="Vowel" spaces={8}>Bi(Bi|(V-i))V̌*( (C<sub>any</sub>|h)V̌+ )+C?B</Symbolic>
+
+<Symbolic prefix="Consonant">Bi(C<sub>any</sub>|h)(V̌+(C<sub>any</sub>|h))+V̌+C?B</Symbolic>
+
+<Info type="examples">
+- po ipandoran se espuackuil va unavi: Define Pandora as the home planet of
+the Na'vi.
+
+Now `ipandoran` is [E: tca pan] is the home planet of the Na'vi"
+</Info>
+
+Unlike our Henry Ford borrowings example, freeform variables don't need to be
+terminated with `be`.
 
 ### Compounds
 
@@ -171,34 +332,22 @@ Compounds let you combine words to make a new word. You're allowed to combine
 roots, particles, and borrowings (borrowings may only appear as the first word).
 You can't combine compounds.
 
-Compounds start with "e", "a", or "o" and can be written with/without spaces due
-to Eberban's self-segregating morphology.
+Compounds can be written with/without spaces and are classified by their
+starting letters.
 
 <Info type="examples">
-- "e" marks a two-word compound: (<DictEntry client:load inline id="funyada7wl" />) {/* e ber ban */}
-- "a" marks a three-word compound: (<DictEntry client:load inline id="jpvb7ytjfg" />) {/* a ce po bu */}
-- "o" marks a four-or-more compound. Currently, none exist.
+"e" and "ei" both mark a two-word compound:
+
+- <DictEntry client:load inline id="funyada7wl" /> {/* e ber ban */}
+- <DictEntry client:load inline id="b0pxo862df" /> {/* ei ceu bu */}
+
+"a" and "ai" mark a three-word compound:
+
+- <DictEntry client:load inline id="jpvb7ytjfg" />) {/* a ce po bu */}
+- No "ai" compound exists.
+
+"o" and "oi" mark a four-or-more compound. Currently, none exist.
 </Info>
 
 Because we don't know how long a four-or-more compound could be, they must be
-ended with `'o` or ` o`.
-
-### Freeform Variables
-
-Freeform variables let you define predicates with a custom name. For example, a
-freeform variable may be used to define a concept in a fictional world. Freeform
-variables do not appear in the dictionary at all.
-
-Freeform variables follow the same structure as borrowings except that their
-prefix is "i".
-
-<Info type="examples">
-- po ipandoran se espuackuil va unavi: Define Pandora as the home planet of
-the Na'vi.
-
-Now `ipandoran` is [E: tca pan] is the home planet of the Na'vi" (we'll come
-back to this example).
-</Info>
-
-Unlike borrowings, freeform variables don't merge. Thus, they cannot be
-terminated with `be`.
+ended with a boundary and then the letter o.
