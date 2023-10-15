@@ -13,6 +13,7 @@ See this repo's website for the What, Who, and How.
 
 - [Astro](https://astro.build)
 - [MDX](https://mdxjs.com)
+- [React](https://react.dev/)
 - [Tailwind](https://tailwindcss.com)
 - [KaTeX](https://katex.org)
 
