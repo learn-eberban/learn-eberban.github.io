@@ -1,27 +1,35 @@
 ---
+import Table from "./MorphologySymbols.mdx";
+
 interface Props {
-    prefix: string | undefined;
-    spaces: number | undefined;
+    prefix:   string  | undefined;
+    spaces:   number  | undefined;
+    hasTable: boolean | undefined;
 };
 
-const { prefix, spaces } = Astro.props;
+const { prefix, spaces, hasTable } = Astro.props;
 const text = prefix === undefined ? "Symbolic representation:" : `${prefix} symbolic representation:`;
 const spaceCount = spaces ?? 4;
+const showTable = hasTable ?? true;
 ---
-<span>{text}<pre>{Array(spaceCount).join(" ")}</pre><code><slot /></code></span>
-
-<style>
-    span {
-        display: block;
-        margin-bottom: 1rem;
+<>
+    <span class="block mb-4">
+        {text}
+        <pre class="inline whitespace-pre-wrap">{Array(spaceCount).join(" ")}</pre>
+        <code class="whitespace-pre"><slot /></code>
+    </span>
+    {
+        showTable
+        &&
+        <details class="symbols p-4 my-6 border-2 border-solid border-gray-200 dark:border-gray-800">
+            <summary>Symbols:</summary>
+            <Table />
+        </details>
     }
-
-    pre {
-        display: inline;
-        white-space: pre-wrap;
-    }
-
-    code {
-        white-space: pre;
+</>
+<style is:global>
+    details.symbols table {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
     }
 </style>

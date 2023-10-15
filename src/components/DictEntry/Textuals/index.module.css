@@ -4,7 +4,7 @@ p.meaning {
     margin-bottom: 0.625rem;
 }
 
-details {
+details.dictionary {
     font-size: 0.875rem;
     background-color: #77777733;
     padding: 0.625rem;
@@ -13,17 +13,11 @@ details {
     border-radius: 0.313rem;
 }
 
-details summary {
-    cursor: pointer;
-    font-weight: bold;
+details.dictionary summary, details.dictionary p {
     margin-bottom: 0.625rem;
 }
 
-details p {
-    margin-bottom: 0.625rem;
-}
-
-details pre {
+details.dictionary pre {
     font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
     color: #333333;
     background-color: #f5f5f5;
@@ -38,7 +32,7 @@ details pre {
     margin-bottom: 0.625rem;
 }
 
-:global(.dark) details pre {
+:global(.dark) details.dictionary pre {
     color: white;
     background-color: #090d16;
 }

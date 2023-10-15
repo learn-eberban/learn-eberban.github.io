@@ -43,7 +43,7 @@ export function Meaning({ children }: { children: string}) {
 
 export function Notes({ children }: { children: string}) {
     return (
-        <details>
+        <details className={styles.dictionary}>
             <summary>Notes :</summary>
             {htmr(strenderParagraphs(strenderInline(children)))}
         </details>
@@ -52,7 +52,7 @@ export function Notes({ children }: { children: string}) {
 
 export function Definition({ children }: { children: string}) {
     return (
-        <details>
+        <details className={styles.dictionary}>
             <summary>Definition :</summary>
             <pre>{children}</pre>
         </details>

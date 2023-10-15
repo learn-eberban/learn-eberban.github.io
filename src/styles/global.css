@@ -75,6 +75,15 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
         @apply cursor-pointer;
     }
 
+    details summary {
+        @apply cursor-pointer font-bold;
+    }
+
+    details summary:focus {
+        @apply outline-none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
     li {
         @apply list-none list-inside mb-2;
     }

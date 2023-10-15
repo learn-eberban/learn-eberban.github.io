@@ -1,0 +1,235 @@
+---
+chapter: 4
+title: "Word Types"
+---
+import DictEntry from "../../components/DictEntry";
+import Info from "../../components/Info.astro";
+import Symbolic from "../../components/Symbolic.astro"
+import WordTypes from "../../components/WordTypes";
+
+This chapter details the types of Eberban words. Here's all of them at a glance:
+
+<WordTypes client:load />
+
+This chapter uses Eberban words and their meanings as examples. The notation
+will be explained when we teach the [Fundamentals](/chapters/fundamentals).
+
+## Particles
+
+<Info type="jargon" title="Particles">
+Particles are words that facilitate forming an Eberban sentence. With them, you
+can express your thoughts with precision and use your own speaking style.
+</Info>
+
+Particles are grouped into families that share the same pattern. Each family is
+written in all caps using the alphabetically-first particle in its family. For
+instance, `MI` represents `mi`, `mie`, `mio`, `me`, `ma`, etc... as the vowel
+order is "ieaou".
+
+Particles are structured by a single non-sonorant consonant followed only by
+vhowels.
+
+<Symbolic>ꞒV̌+</Symbolic>
+
+<Info type="examples">
+- <DictEntry client:load inline id="unfcuerxgm" /> {/* mi */}
+- <DictEntry client:load inline id="awzbv8iu8c" /> {/* pa */}
+</Info>
+
+As seen, particles function in one of two ways. Some particles, like the `MI`
+family, are also content words: they express meaning. Other particles, like the 
+`PA` family, serve a grammatical purpose.
+
+## Content Words
+
+<Info type="jargon" title="Content Words">
+Content words express the meaning of an Eberban sentence. All content words are
+predicates.
+</Info>
+
+### Roots
+
+<Info type="jargon" title="Roots">
+Roots are content words that serve as the building blocks of the language. They
+express meanings that have been deemed indecomposable.
+</Info>
+
+**Root Structure 1 - Non-sonorant:**
+
+1. Begin the root with a non-sonorant consonant.
+1. Follow it with at least one vhowel.
+1. &nbsp;
+   1. Three choices:
+      1. Follow with a sonorant.
+      1. Follow with a medial pair.
+      1. Follow with a consonant triplet.
+   1. Follow with at least one vhowel.
+1. Optionally repeat step 3 as much as you'd like.
+1. Optionally end with a sonorant.
+
+<Symbolic>ꞒV̌+((Ç|(CC)<sub>m</sub>|(ꞒC<sub>m</sub>C<sub>i</sub>))V̌+)+Ç?</Symbolic>
+
+<Info type="examples">
+- <DictEntry client:load inline id="vz1h8ccnmh" /> {/* ber */}
+- <DictEntry client:load inline id="pwmxutektw" /> {/* ban */}
+- <DictEntry client:load inline id="la6bqysk7n" /> {/* mana */}
+- <DictEntry client:load inline id="r9jofkaowc" /> {/* viru */}
+</Info>
+
+**Root Structure 2 - Initial pair:**
+
+1. Begin the root with an initial pair.
+1. Follow it with at least one vhowel.
+1. This step is optional, follow it any number of times.
+   1. Three choices:
+      1. Follow with a sonorant.
+      1. Follow with a medial pair.
+      1. Follow with a consonant triplet.
+   1. Follow with at least one vhowel.
+1. Optionally end with a sonorant.
+
+<Symbolic>(CC)<sub>i</sub>V̌+((Ç|(CC)<sub>m</sub>|(ꞒC<sub>m</sub>C<sub>i</sub>))V̌+)*Ç?</Symbolic>
+
+<Info type="examples">
+- <DictEntry client:load inline id="0uujkotag5" /> {/* pcien */}
+- <DictEntry client:load inline id="i24b50cv0l" /> {/* ckual */}
+- <DictEntry client:load inline id="scjlbqkhj0" /> {/* pra */}
+- <DictEntry client:load inline id="r7wbdwqgm0" /> {/* gli */}
+</Info>
+
+### Borrowings
+
+<Info type="jargon" title="Borrowings">
+Borrowings are content words that let you import foreign words or names. They
+are not present in the dictionary but can appear in compounds combined with a
+root or particle.
+</Info>
+
+The structures of a borrowing are much looser than those of a root, even
+allowing you to use an initial pair in the middle of a word.
+
+**Borrowing Structure 1 - Vowel:**
+
+1. Prefix the word:
+   1. With a boundary: either a space or `'`
+   1. Then `u`
+1. Begin with a vowel. If the vowel is the letter u, place a boundary before it.
+1. Follow with any number of vhowels.
+1. Six choices:
+   1. The letter h.
+   1. A single consonant.
+   1. An initial pair.
+   1. A medial pair.
+   1. A consonant triplet.
+   1. A glue.
+1. Follow with at least one vhowel.
+1. Optionally go back to step 4.
+1. Optionally end with a single consonant.
+1. Suffix the word with a boundary.
+
+<Symbolic>Bu(Bu|(V-u))V̌*((C<sub>any</sub>|h)V̌+)+C?B</Symbolic>
+
+<Info type="examples">
+- **uaisakrim**: 🍨
+- <DictEntry client:load inline id="funyada7wl" /> {/* e uinglic ban */}
+</Info>
+
+**Borrowing Structure 2 - Consonant:**
+
+1. Prefix the word:
+   1. With a boundary: either a space or `'`
+   1. Then `u`
+1. Six choices:
+   1. The letter h.
+   1. A single consonant.
+   1. An initial pair.
+   1. A medial pair.
+   1. A consonant triplet.
+   1. A glue.
+1. Follow with at least one vhowel.
+1. Six choices:
+   1. The letter h.
+   1. A single consonant.
+   1. An initial pair.
+   1. A medial pair.
+   1. A consonant triplet.
+   1. A glue.
+1. Optionally go back to step 3.
+1. Follow with at least one vhowel.
+1. Optionally end with a single consonant.
+1. Suffix the word with a boundary.
+
+<Symbolic>Bu(C<sub>any</sub>|h)(V̌+(C<sub>any</sub>|h))+V̌+C?B</Symbolic>
+
+<Info type="examples">
+- **upidza**: 🍕
+- <DictEntry client:load inline id="ql0k4zdkcv" /> {/* e ufranse stan */}
+</Info>
+
+**Multiple borrowings**
+
+Borrowings are terminated with the particle `be`, but this is only required when
+talking about two separate borrowings consecutively:
+
+<Info type="examples">
+- **za uhenri ufordo**: [E:tce p] is named Henry Ford.
+- **za uhenri be ufordo**: [E:tce p] is named Henry and is a "Ford". (Maybe
+someone named their car?)
+</Info>
+
+Test out your own borrowings using the
+[visual&nbsp;parser](https://eberban.github.io/eberban/web/parser_box_glosser.html)!
+
+### Freeform Variables
+
+<Info type="jargon" title="Freeform Variables">
+Freeform variables let you define predicates with a custom name. One use
+case for this word type would be to define a concept in a fictional world. Words
+of this type do not appear in the dictionary at all.
+</Info>
+
+Freeform variables follow the same structure as borrowings except that
+their prefix is "i". Because of this, we'll skip the instructions and just show
+the symbolic representations.
+
+<Symbolic prefix="Vowel" spaces={6} hasTable={false}>Bi(Bi|(V-i))V̌*((C<sub>any</sub>|h)V̌+)+C?B</Symbolic>
+
+<Symbolic prefix="Consonant" spaces={3}>Bi(C<sub>any</sub>|h)(V̌+(C<sub>any</sub>|h))+V̌+C?B</Symbolic>
+
+<Info type="examples">
+- po ipandoran se espuackuil va unavi: Define Pandora as the home planet of
+the Na'vi.
+
+Now `ipandoran` is [E: tca pan] is the home planet of the Na'vi"
+</Info>
+
+Unlike our Henry Ford borrowings example, freeform&nbsp;variables don't need to
+be terminated with `be`.
+
+### Compounds
+
+<Info type="jargon" title="Compounds">
+Compounds let you combine words to make a new word. You're allowed to combine
+roots, particles, and borrowings (borrowings may only appear as the first word).
+You can't combine compounds.
+</Info>
+
+Compounds can be written with/without spaces and are classified by their
+starting letters.
+
+<Info type="examples">
+"e" and "ei" both mark a two-word compound:
+
+- <DictEntry client:load inline id="funyada7wl" /> {/* e ber ban */}
+- <DictEntry client:load inline id="b0pxo862df" /> {/* ei ceu bu */}
+
+"a" and "ai" mark a three-word compound:
+
+- <DictEntry client:load inline id="jpvb7ytjfg" />) {/* a ce po bu */}
+- No "ai" compound exists.
+
+"o" and "oi" mark a four-or-more compound. Currently, none exist.
+</Info>
+
+Because we don't know how long a four-or-more compound could be, they must be
+ended with a boundary and then the letter o.
