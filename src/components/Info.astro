@@ -1,61 +1,67 @@
 ---
 type InfoConfig = {
     heading: string,
-    styles: string,
-};
+    lightStyles: string,
+    darkStyles: string,
+    borderStyles: string,
+}
 
 interface Props {
     title: string;
-    type: "examples" | "jargon" | "warning";
+    type: "examples" | "jargon" | "reminder" | "warning";
 };
 const {title, type} = Astro.props;
 
 /*
-  Tailwind doesn't let you do percentage stops idiomatically, 
-  so the the hex of the corresponding -50 colour is used with the percentage.
+   For some bizarre reason, tailwind CSS does not work with string interpolation.
+   Unfortunately this means that the styles must be duplicated.
 */
 const config: InfoConfig = (() => {
-    switch (type) {
-        case "examples":
-            const green50 = "#ddf1f3";
-            const green800 = "#16663a";
-            return {
-                heading: `✍️ Examples:`,
-                styles: `from-green-100 via-[${green50}_90%] dark:from-green-700 dark:via-[${green800}_90%] dark:to-green-900 border-green-900`,
-            }
-        case "jargon":
-            const purple50 = "#faf5ff";
-            const purple800 = "#6925aa";
-            return {
-                heading: `🪶 Jargon: ${title}`,
-                styles: `from-purple-100 via-[${purple50}_90%] dark:from-purple-700 dark:via-[${purple800}_90%] dark:to-purple-900 border-purple-900`,
-            };
-        case "warning":
-            const amber50 = "#fffbeb";
-            return { 
-                heading: `🚧 Warning: ${title}`,
-                // For some bizarre reason, using these non-tailwind colours only works as literal values
-                styles: `from-amber-100 via-[${amber50}_90%] dark:text-black dark:from-[#bfab0b] dark:to-[#8c7d08] border-[#8c7d08]`,
-            };
-    };
+    switch(type) {
+        case "examples": return {
+            heading: `✍️ Examples:`,
+            lightStyles: `from-green-100 via-green-50 via-75%`,
+            darkStyles: `dark:from-green-700 dark:via-green-800 dark:via-50% dark:to-green-900`,
+            borderStyles: `border-green-900`,
+        }
+        case "jargon": return {
+            heading: `🪶 Jargon: ${title}`,
+            lightStyles: `from-purple-100 via-purple-50 via-75%`,
+            darkStyles: `dark:from-purple-700 dark:via-purple-800 dark:via-50% dark:to-purple-900`,
+            borderStyles: `border-purple-900`,
+        }
+        case "reminder": return {
+            heading: `🔔 Reminder: ${title}`,
+            lightStyles: `from-blue-100 via-blue-50 via-75%`,
+            darkStyles: `dark:from-blue-700 dark:via-blue-800 dark:via-50% dark:to-blue-900`,
+            borderStyles: `border-blue-900`,
+        }
+        case "warning": return {
+            heading: `🚧 Warning: ${title}`,
+            lightStyles: `from-amber-100 via-amber-50 via-75%`,
+            // Again, no string interpolation, so non-tailwind colours are literals.
+            darkStyles: `dark:text-black dark:from-[#bfab0b] dark:to-[#8c7d08]`,
+            borderStyles: `border-[#8c7d08]`,
+        }
+    }
 })();
-
-/* 
-  This is a <div> and not a more semantically meaningful element like <aside>
-  because Info cannot be separated from the content. 
-  Jargon must be explained. Vocbaulary must be introduced.
-*/
 ---
-<div class={`info ${config.styles}`}>
+
+{/*
+   This is a <div> and not a more semantically meaningful element like <aside>
+   because Info cannot be separated from the content. 
+   Jargon must be explained. Vocabulary must be introduced.
+*/}
+<div class={`info ${[config.lightStyles, config.darkStyles, config.borderStyles].join(" ")}`}>
     <p><strong>{config.heading}</strong></p>
-    <slot class="last:mb:0 via-amber-50" />
+    <slot />
 </div>
 
 <style is:global>
     @tailwind components;
     @layer components {
         .info {
-            /* From and via is configured, fade to transparent automatically. */
+            /* From, via, and to are configured, fade to transparent automatically. */
             @apply bg-gradient-to-b;
             @apply pt-4 px-4 pb-4;
             @apply my-8;

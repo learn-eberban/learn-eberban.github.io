@@ -40,7 +40,7 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
     }
     
     li, p {
-        last:mb-0;
+        @apply last:mb-0;
     }
 
     /* SINGLE STYLES */

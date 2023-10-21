@@ -1,0 +1,160 @@
+---
+chapter: 5
+title: "Eberban Predicates"
+---
+import DictEntry from "../../components/DictEntry";
+import Info from "../../components/Info.astro";
+
+Beginning with this chapter, we dive into how Eberban actually works.
+
+Eberban has two overarching [word types](/chapters/word-types): particles and
+content words. Some particles are content words and _all_ content words are
+predicates.
+
+Eberban predicates differ from Logic predicates. Henceforth, the usage of
+"predicate" will refer to an Eberban predicate.
+
+## Places 
+
+<Info type="jargon" title="Places (AKA slots)">
+Places bind arguments to a predicate. We use them to express meaning with more
+detail.
+
+Places can bind any number of arguments to a predicate any number of times.
+</Info>
+
+Predicates have places.
+
+The first of these places is called **the context**. It conveys some information
+automatically, like tense (walked/walks/will walk). By design, the context is
+always present, yet hidden and not directly accessible. This lets us focus on
+the meaning we want to express.
+
+The others are called **overt places** and are represented by the vowels
+\{E,A,O,U\}.
+
+All predicates have the context place and at least one overt place. Let's take
+a look at one:
+
+<Info type="examples">
+<DictEntry client:load inline id="vgeqteao1c" /> {/* mian */}
+</Info>
+
+The property "mian" has one overt place `E`.
+
+<Info type="reminder" title="Property">
+A unary predicate is called a property. We recommend reviewing the
+[logic chapter](/chapters/a-little-logic) if you still find this sort of jargon
+confusing.
+</Info>
+
+## Arguments
+
+Places have an argument quantity and an argument type. This informs us what kind
+of arguments a place may bind to its predicate.
+
+The `E` place of "mian" binds any number of arguments of quantity `tce*` and
+type `pan`.
+
+### Quantity
+
+Most arguments that you'll see will have their quantities expressed as sets.
+Sets can either be collective or distributive.
+
+<Info type="jargon" title="Collective Sets vs. Distributive Sets">
+Set A is a subset of set B if the members of A are also members of B.
+
+A collective set denotes an exact quantity of the argument type. This is
+expressed by a root starting with `tc-`.
+
+A distributive set denotes a plural quantity that also works for subsets of the
+argument type. This is expressed with one of the `tc-` roots followed by `*`.
+</Info>
+
+The argument quantity of the `E` place of "mian" is `tce*`. `tce` denotes a
+non-empty set, and `*` tells us that we can use any subset of this non-empty
+set.
+
+The lack of a `tc-` root denotes a singular quantity.
+
+### Type
+
+Arguments are either typed as atom or predicate.
+
+**Atoms**
+
+<Info type="jargon" title="Atoms">
+Atoms are non-predicates; they have no intrinsic meaning. An atom acquires
+meaning when a place binds it to a predicate. When bound, they're used to
+represent anything from an idea to a cat. In this state, atoms can be considered
+nouns.
+</Info>
+
+The argument at the `E` place of "mian" has the `pan` type. Which, if we look it
+up:
+
+<div class="my-4"><DictEntry client:load inline id="whi7bmezoy" /></div> {/* pan */}
+
+Will tell us that the type is a physical entity. So "mian" binds a set of one or
+more physical entities to its `E` place.
+
+**Predicates**
+
+The predicate type is denoted with brackets. The number of letters inside the
+brackets tells us the arity.
+
+<Info type="examples">
+<DictEntry client:load inline id="r7wbdwqgm0" /> {/* gli */}
+</Info>
+
+"gli" binds a set of one or more physical entities to its `E` place, and a
+proposition to its `A` place.
+
+## In Sentences
+
+In Eberban, sentences are assertions. Asserting here means stating something
+that you believe to be true. This does not necessarily mean that it _is_ true,
+because each assertion evaluates to trivalent truth. 
+
+<Info type="jargon" title="Trivalent truth">
+We define trivalent truth to be the set \{(proveably) true,
+(proveably) false, unknown/unproven\}.
+</Info>
+
+Similar to a full stop in English, an Eberban sentence is marked by `pa` at the
+beginning.
+
+<Info type="examples">
+- <DictEntry client:load inline id="vgeqteao1c" /> {/* mian */}
+- pa mian: "In the context, there exists some physical thing(s) _e_ which is a
+cat."
+- <DictEntry client:load inline id="r7wbdwqgm0" /> {/* gli */}
+- pa gli: "In the context, there exists some physical thing(s) _e_ and
+proposition _A_, such that _e_ is happy that _A_ is true."
+
+In future examples, we'll omit the context unless it is the focus.
+</Info>
+
+Notice how the places of "mian" and "gli" are non-binding. Yet we have two full
+sentences anyway. What's the deal with that?
+
+<Info type="jargon" title="Non-binding">
+A place that isn't binding any arguments to its predicate is called
+"non-binding".
+</Info>
+
+### Existential Arguments
+
+<Info type="jargon" title="Existential arguments">
+Eberban creates an argument to be bound to each non-binding place in a sentence.
+We call these created arguments "existential arguments" as Eberban has brought
+them into existence.
+</Info>
+
+Let's have a look at the existential arguments in the above example. Both `E`
+places of "mian" and "gli" bind to existential arguments of quantity `tce*` and
+type `pan`. The `A` place of "gli" is bound to some proposition. All of these
+arguments are very vague.
+
+To provide better detail, we must supply the arguments ourselves. We'll go over
+this in the bindings chapters.

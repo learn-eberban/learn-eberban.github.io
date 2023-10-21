@@ -40,7 +40,7 @@ const docTitle = (() => {
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width-device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{docTitle}</title>
         <meta name="author" content="The ber spua Discord Server">
         <meta name="description" content="A free and open-source book for studying the constructed language Eberban">
@@ -51,7 +51,7 @@ const docTitle = (() => {
         <link rel="manifest" href="/site.webmanifest">
         <link rel="mask-icon" href="/logo/safari-pinned-tab.svg" color="#5bbad5">
         <meta name="msapplication-TileColor" content="#2b5797">
-        <meta name="theme-color" content="#ffffff">
+        <meta name="theme-color" content="white">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
     </head>
     <body class="preload">
@@ -108,7 +108,7 @@ const docTitle = (() => {
         localStorage?.setItem("browserPrefersDark", browserPrefersDark.toString());
         return browserPrefersDark;
     }
-
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", checkBrowserPrefersDark() ? "black" : "white");
     document.documentElement.classList.toggle("dark", checkBrowserPrefersDark());
 
     /// bars-3 mini <svg> sourced from https://heroicons.com/
@@ -136,6 +136,7 @@ const docTitle = (() => {
         const element = document.documentElement;
         element.classList.toggle("dark");
         const isDark = element.classList.contains("dark");
+        document.querySelector('meta[name="theme-color"]')?.setAttribute("content", isDark ? "black" : "white");
         localStorage?.setItem("browserPrefersDark", isDark.toString());      
     }
 
