@@ -44,16 +44,16 @@ function DisplayInline({ name, short }: { name: string, short: string }) {
     );
 }
 
-function Placeholder({ inline, title, children }: { inline: boolean, title: string, children?: ReactNode }) {
-    if (inline) {
-        return <>{title}: {children}</>
+function Placeholder({ block, title, children }: { block: boolean, title: string, children?: ReactNode }) {
+    if (block) {
+        return (
+            <article className={styles.entry}>
+                <h3>{title}</h3>
+                {children}
+            </article>
+        );
     }
-    return (
-        <article className={styles.entry}>
-            <h3>{title}</h3>
-            {children}
-        </article>
-    );
+    return <>{title}: {children}</>
 };
 
 function Error() {
@@ -70,7 +70,7 @@ function Error() {
     );
 }
 
-export default function DictEntry({ id, inline }: { id: string, inline: boolean }) {
+export default function DictEntry({ id, block }: { id: string, block: boolean }) {
     const [entry, setEntry] = useState<EntryType | undefined>(undefined);
     const [hasLoaded, setHasLoaded] = useState(false);
     useEffect(() => {
@@ -82,10 +82,10 @@ export default function DictEntry({ id, inline }: { id: string, inline: boolean 
         });
     }, [entry, hasLoaded]);
     if (!hasLoaded) {
-        return <Placeholder inline={inline} title="Loading..." />;
+        return <Placeholder block={block} title="Loading..." />;
     }
     if (!entry) {
-        return <Placeholder inline={inline} title="Failed to load"><Error /></Placeholder>
+        return <Placeholder block={block} title="Failed to load"><Error /></Placeholder>
     }
-    return inline ? <DisplayInline {...entry} /> : <DisplayBlock {...entry} />
+    return block ? <DisplayBlock {...entry} /> : <DisplayInline {...entry} />
 };
