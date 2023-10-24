@@ -1,0 +1,105 @@
+---
+chapter: 6
+title: "Arity Mismatch Resolution"
+---
+
+import ArityMismatch from "../../components/ArityMismatch";
+import DictEntry from "../../components/DictEntry";
+import Info from "../../components/Info.astro";
+
+Chaining is the logic of Eberban, and Arity Mismatch Resolution is its linchpin.
+We've decided that the latter is foundational enough to come first in its own
+chapter.
+
+The function of this concept lies in its name. Arity mismatches occur all the
+time. In this chapter, we'll look at how they occur in sentences and how they are
+resolved.
+
+<Info type="jargon" title="Arity mismatch">
+Given two side-by-side words, an arity mismatch occurs when the expected arity
+of the left is less than the actual arity of the right.
+</Info>
+
+## Occurring in sentences
+
+In Eberban, sentences are assertions: statements of what the speaker believes to
+be true. Assertions aren't necessarily true, in fact, each assertion evaluates
+to trivalent truth.
+
+<Info type="jargon" title="Trivalent truth">
+We define trivalent truth to be the set \{(proveably) true,
+(proveably) false, unknown/unproven\}.
+</Info>
+
+Similar to a full stop in English, an Eberban sentence is marked by "pa" at the
+beginning. "pa" is a particle that expects a 0-ary predicate. This is because
+only propositions can be asserted.
+
+<Info type="examples">
+- <DictEntry client:load id="gvgo57y1k1" /> {/* e te dena */}
+- pa e te dena: "In the context, it is Monday."
+- <DictEntry client:load id="wzfiy3huwo" /> {/* e tia gare */}
+- pa e tia gare: "In the context, it is June."
+
+In future examples, we'll omit the context unless it is the focus.
+</Info>
+
+These examples work as expected. Let's use some other predicates:
+
+<Info type="examples">
+- <DictEntry client:load id="vgeqteao1c" /> {/* mian */}
+- pa mian: ❌ arity mismatch: 0 < 1
+- <DictEntry client:load id="r7wbdwqgm0" /> {/* gli */}
+- pa gli: ❌ arity mismatch: 0 < 2
+</Info>
+
+These don't. It's analogous to trying to force two jigsaw pieces together. 
+
+<ArityMismatch client:load jigsaws={[
+    {arity: 0, direction: "left", text: "", translate: [0,0]},
+    {arity: 0, direction: "left", text: "", translate: [0,100]},
+    {arity: 1, direction: "right", text: "mian", translate: [200,0]},
+    {arity: 2, direction: "right", text: "gli", translate: [200,100]},
+]} />
+
+Time to resolve the mismatch!
+
+## The process
+
+Arity Mismatch Resolution only operates on two side-by-side words. Let's call
+these words _L_ and _R_ for left and right respectively.
+
+Beginning with arity of L < arity of R:
+
+1. Choose a place of R.
+1. Replace it with an existential argument.
+1. Go back to step 1 until the arities of _L_ and _R_ match.
+
+We'll learn which place gets chosen when we learn Chaining.
+
+<Info type="jargon" title="Existential arguments">
+An existential argument is an argument that is created by the process of Arity
+Mismatch Resolution to replace a place of a predicate.
+</Info>
+
+## Resolved sentences
+
+Now that we know the process, let's see what our sentences look like:
+
+<ArityMismatch client:load jigsaws={[
+    {arity: 0, direction: "left", text: "", translate: [0,0]},
+    {arity: 0, direction: "left", text: "", translate: [0,100]},
+    {arity: 0, direction: "right", text: "mian", translate: [140,0]},
+    {arity: 0, direction: "right", text: "gli", translate: [140,100]},
+]} />
+
+The words haven't changed at all! That's because Arity Mismatch Resolution
+happens automatically behind the scenes. This helps keep Eberban sentences
+concise, letting us focus on expressing meaning. Here is the translation of our
+sentences:
+
+<Info type="examples">
+- pa mian: There exists some physical entity+ _e_ which is a cat.
+- pa gli: There exists some physical entity+ _e_ and some proposition _A_, such
+that _e_ is happy that _A_ is true.
+</Info>
