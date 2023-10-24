@@ -17,8 +17,8 @@ Eberban predicates differ from Logic predicates. Henceforth, the usage of
 ## Places 
 
 <Info type="jargon" title="Places (AKA slots)">
-Places bind arguments to a predicate. We use them to express meaning with more
-detail.
+Predicates are bound to arguments by places. We use them to express meaning with
+more detail.
 
 Places can bind any number of arguments to a predicate any number of times.
 </Info>
@@ -31,9 +31,10 @@ always present, yet hidden and not directly accessible. This lets us focus on
 the meaning we want to express.
 
 The others are called **overt places** and are represented by the vowels
-\{E,A,O,U\}.
+\{E,A,O,U\}. They follow this order, e.g., the first and second overt places of
+a predicate are "E" and "A" respectively.
 
-All predicates have the context place and at least one overt place. Let's take
+All predicates have the context place and any number of overt places. Let's take
 a look at one:
 
 <Info type="examples">
@@ -51,10 +52,10 @@ confusing.
 ## Arguments
 
 Places have an argument quantity and an argument type. This informs us what kind
-of arguments a place may bind to its predicate.
+of arguments a predicate may be bound to by its places.
 
-The `E` place of "mian" binds any number of arguments of quantity `tce*` and
-type `pan`.
+"mian" is bound to any number of arguments of quantity `tce*` and type `pan` at
+its `E` place.
 
 ### Quantity
 
@@ -73,9 +74,15 @@ argument type. This is expressed with one of the `tc-` roots followed by `*`.
 
 The argument quantity of the `E` place of "mian" is `tce*`. `tce` denotes a
 non-empty set, and `*` tells us that we can use any subset of this non-empty
-set.
+set. This effectively means one or more.
 
-The lack of a `tc-` root denotes a singular quantity.
+<Info type="jargon" title="Quantity annotation">
+This "one or more" quantity is so common that we'll suffix nouns and pronouns
+with the symbol `+` to annotate them with said quantity.
+</Info>
+
+On the occasion you do see it, the lack of a `tc-` root denotes an unspecified
+quantity. We'll teach ways to further specify quantity in a later chapter.
 
 ### Type
 
@@ -95,8 +102,8 @@ up:
 
 <div class="my-4"><DictEntry client:load id="whi7bmezoy" /></div> {/* pan */}
 
-Will tell us that the type is a physical entity. So "mian" binds a set of one or
-more physical entities to its `E` place.
+Will tell us that the type is a physical entity. So "mian" is bound to a
+physical entity+ by its `E` place.
 
 **Predicates**
 
@@ -107,54 +114,5 @@ brackets tells us the arity.
 <DictEntry client:load id="r7wbdwqgm0" /> {/* gli */}
 </Info>
 
-"gli" binds a set of one or more physical entities to its `E` place, and a
-proposition to its `A` place.
-
-## In Sentences
-
-In Eberban, sentences are assertions. Asserting here means stating something
-that you believe to be true. This does not necessarily mean that it _is_ true,
-because each assertion evaluates to trivalent truth. 
-
-<Info type="jargon" title="Trivalent truth">
-We define trivalent truth to be the set \{(proveably) true,
-(proveably) false, unknown/unproven\}.
-</Info>
-
-Similar to a full stop in English, an Eberban sentence is marked by `pa` at the
-beginning.
-
-<Info type="examples">
-- <DictEntry client:load id="vgeqteao1c" /> {/* mian */}
-- pa mian: "In the context, there exists some physical thing(s) _e_ which is a
-cat."
-- <DictEntry client:load id="r7wbdwqgm0" /> {/* gli */}
-- pa gli: "In the context, there exists some physical thing(s) _e_ and
-proposition _A_, such that _e_ is happy that _A_ is true."
-
-In future examples, we'll omit the context unless it is the focus.
-</Info>
-
-Notice how the places of "mian" and "gli" are non-binding. Yet we have two full
-sentences anyway. What's the deal with that?
-
-<Info type="jargon" title="Non-binding">
-A place that isn't binding any arguments to its predicate is called
-"non-binding".
-</Info>
-
-### Existential Arguments
-
-<Info type="jargon" title="Existential arguments">
-Eberban creates an argument to be bound to each non-binding place in a sentence.
-We call these created arguments "existential arguments" as Eberban has brought
-them into existence.
-</Info>
-
-Let's have a look at the existential arguments in the above example. Both `E`
-places of "mian" and "gli" bind to existential arguments of quantity `tce*` and
-type `pan`. The `A` place of "gli" is bound to some proposition. All of these
-arguments are very vague.
-
-To provide better detail, we must supply the arguments ourselves. We'll go over
-this in the bindings chapters.
+"gli" is bound to a physical entity+ by its `E` place, and to a proposition by
+its `A` place.
