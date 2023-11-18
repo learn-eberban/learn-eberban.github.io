@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import ReactFlow, {useReactFlow, useStore, ReactFlowProvider} from "reactflow";
 import "reactflow/dist/base.css";
 import CustomNode from "./Node";
