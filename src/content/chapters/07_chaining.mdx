@@ -2,4 +2,36 @@
 chapter: 7
 title: "Chaining"
 ---
+import Blockquote from "../../components/Blockquote.astro";
+import Info from "../../components/Info.astro";
 
+<Blockquote citee="Mia Entropy">
+Once you get chaining the whole language gets easy :p
+</Blockquote>
+
+<Info type="jargon" title="Chaining">
+Chaining is the process of how two side-by-side predicates combine to form a new
+predicate.
+</Info>
+
+Thus far we've only made one-word sentences. Either "pa" and some proposition or
+"pa" and some other kind of predicate using Arity Mismatch Resolution.
+
+So how do we speak sentences packed full of predicates? Well, we start from the
+right and keep chaining two predicates until we've got a one-word sentence, like
+so:
+
+TODO only use a number of predicates equal to the length of the longest sentence in this chapter!
+`pa [p1 [p2 [p3 [p4 p5]]]]`
+
+Starting from "p4" and "p5", going to "p3" and "p4 p5", and finishing with "p1
+ p2 p3 p4 p5", which then gets asserted by "pa". The finer details depend on
+what kind of predicates we're chaining.
+
+## Propositions
+
+Propositions have no places, so we chain them using "and" (logical conjunction).
+We'll get to other connectives, like "or" and "not", later.
+
+<Info type="examples">
+</Info>
