@@ -25,7 +25,7 @@ TODO only use a number of predicates equal to the length of the longest sentence
 `pa [p1 [p2 [p3 [p4 p5]]]]`
 
 Starting from "p4" and "p5", going to "p3" and "p4 p5", and finishing with "p1
- p2 p3 p4 p5", which then gets asserted by "pa". The finer details depend on
+p2 p3 p4 p5", which then gets asserted by "pa". The finer details depend on
 what kind of predicates we're chaining.
 
 ## Propositions
@@ -33,5 +33,62 @@ what kind of predicates we're chaining.
 Propositions have no places, so we chain them using "and" (logical conjunction).
 We'll get to other connectives, like "or" and "not", later.
 
+There are no places, so chaining propositions is unordered (they'll all mean the same thing) one big proposition
+
 <Info type="examples">
 </Info>
+
+## Properties
+
+(where transitivity??)
+Draft: Properties each have one place. Chaining properties = binding th eE place.
+
+Talk about syntax = same but semantics depends on type (transitivity talked about in relations)
+
+### Atom-typed places
+
+set narrowing, it's unordered (talk about it any order) as long as the type and
+quantity match up.
+
+set narrowing describes the atom, and atoms aren't explicitly mentioned as AMR
+uses existentaial variables, not speakers
+
+-happy path
+-default binds
+-arity mismatch (0 < 1)
+- arity 1 > 0
+
+### Predicate-typed places
+
+-happy path
+-default binds (none AFAIK)
+-arity mismatch (0 < 1)
+- arity 1 > 0
+
+## Higher arity predicates
+
+relations
+
+## Which place?
+
+-transitivity, E or A
+
+3-ary and above will be talked about more in place selection (as O, U and
+others aren't exposed t ochaining by default)
+
+## Brackets
+
+## Chaining Nonsense
+
+will always evaluate to proveably false
+
+chaining an atom-typed place to a predicate-typed place:
+-pa mian zvaor
+
+atom-type mismatch
+
+pa eberban pcien and pa pcien eberban (pan =/= ban -> nonsense -> false)
+
+quantity mismatch
+
+tce tco X

@@ -1,9 +1,9 @@
 ---
-interface Props { citee: string }
-const { citee } = Astro.props;
+interface Props { cite: string }
+const { cite: cite } = Astro.props;
 ---
 TODO STYLING
 <blockquote>
     <slot />
-    <cite>—{citee}</cite>
+    <cite>—{cite}</cite>
 </blockquote>
