@@ -2,10 +2,12 @@
 chapter: 7
 title: "Chaining"
 ---
+
 import Blockquote from "../../components/Blockquote.astro";
+import DictEntry from "../../components/DictEntry";
 import Info from "../../components/Info.astro";
 
-<Blockquote citee="Mia Entropy">
+<Blockquote cite="Mia Entropy">
 Once you get chaining the whole language gets easy :p
 </Blockquote>
 
@@ -15,7 +17,7 @@ predicate.
 </Info>
 
 Thus far we've only made one-word sentences. Either "pa" and some proposition or
-"pa" and some other kind of predicate using Arity Mismatch Resolution.
+"pa" and some predicate-turned-proposition with Arity Mismatch Resolution.
 
 So how do we speak sentences packed full of predicates? Well, we start from the
 right and keep chaining two predicates until we've got a one-word sentence, like
@@ -30,48 +32,103 @@ what kind of predicates we're chaining.
 
 ## Propositions
 
-Propositions have no places, so we chain them using "and" (logical conjunction).
-We'll get to other connectives, like "or" and "not", later.
+Propositions have no overt places, so there's no binding. We chain two propositions
+together using "and" (logical conjunction).
 
-There are no places, so chaining propositions is unordered (they'll all mean the same thing) one big proposition
+Two propositions chained together become a larger compound proposition. The
+order of this kind of chaining does not matter. E.g., the following sentences
+are equivalent:
 
 <Info type="examples">
+- <DictEntry client:load id="eebgcxilaa" /> {/* cluen */}
+- <DictEntry client:load id="jl7ojeesj9" /> {/* vzoun*/}
+- pa cluen vzoun
+  - "It's a summer evening."
+  - LiterallY: "it is summer and it is evening."
+- pa vzoun cluen
+  - "It's an evening summer."
+  - Literally: "It is evening and it is summer."
+
+TODO: work on the stling. Ensure it aligns with Word Types.
 </Info>
+
+TOD INSERT REACT FLOW CHAINING DIAGRAM. Just connecting cluen vzoun together followed
+below by vzoun cluen together.
+
+Lacking overt places, propositions are limited in what meaning they can express.
 
 ## Properties
 
-(where transitivity??)
-Draft: Properties each have one place. Chaining properties = binding th eE place.
+Properties have one overt place, "E". How they're bound depends on the place.
 
-Talk about syntax = same but semantics depends on type (transitivity talked about in relations)
+### Atom places
 
-### Atom-typed places
+Atoms are not in Eberban's vocabulary—because they have no intrinsic meaning.
+Instead, we rely on Arity Mismatch Resolution to create them as existential
+atom arguments.
 
-set narrowing, it's unordered (talk about it any order) as long as the type and
-quantity match up.
+These existential atom arguments are bound to atom places. With each binding, an
+existential atom argument is narrowed by argument quantity and type.
 
-set narrowing describes the atom, and atoms aren't explicitly mentioned as AMR
-uses existentaial variables, not speakers
+<Info type="examples">
+TODO, get the word meaning here
+mian cat
+miun sleeps
+zmen white
+zun boy
+za usnobel
+future: coriu is possessed/owned by
 
--happy path
--default binds
--arity mismatch (0 < 1)
-- arity 1 > 0
+sleeping white boy cat named Snowbell
+</Info>
 
-### Predicate-typed places
+TODO set narrowing diagram here
 
--happy path
--default binds (none AFAIK)
--arity mismatch (0 < 1)
-- arity 1 > 0
+TODO atom chaining (dot to predicate)
+
+The set of sleeping white boy cats named Snowbell is far narrower than the set
+of all cats.
+
+Similar to propositions, atom properties can be chained in any order so long as
+the argument quantity and type of each place match up.
+
+### Predicate places
+
+When chaining two side-by-side properties with predicate places, the left's "E"
+place takes the right predicate as its argument. Because of this behaviour, the
+order matters.
+
+TODO examples
+
+- funny: it is funny that E:() is true
+- absurd: it is absurd that E:() is true
+- acidental: it is accidental that E:() is true
+
+TODO diagram, figure out what name to call it
+
+Because the right predicate is taken as the argument, there's only one arity
+mismatch at the beginning!
+
+### Default binds
+
+Some places are often bound to the same arguments, so Eberban lists these as
+defaults.
+
+TODO examples
+meul (defaults to water rains)
+
+### Binding with propositions (arity 1 > 0)
 
 ## Higher arity predicates
 
-relations
+mmmmmm, relations and 3-ary and more
 
-## Which place?
+---
+
+### Which place?
 
 -transitivity, E or A
+Talk about syntax = same but semantics depends on type (transitivity talked about in relations)
 
 3-ary and above will be talked about more in place selection (as O, U and
 others aren't exposed t ochaining by default)
@@ -92,3 +149,5 @@ pa eberban pcien and pa pcien eberban (pan =/= ban -> nonsense -> false)
 quantity mismatch
 
 tce tco X
+
+---
