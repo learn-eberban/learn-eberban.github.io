@@ -39,7 +39,9 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
         @apply mb-4;
     }
     
-    li, p {
+    li, p,
+    .info > ul,
+    .info > ul ul {
         @apply last:mb-0;
     }
 
@@ -106,7 +108,12 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
     }
 
     ol ol li {
-        @apply [list-style-type:lower-alpha] mb-1;
+        @apply [list-style-type:lower-alpha];
+    }
+
+    ol ol li,
+    ul ul li {
+         @apply mb-1;
     }
     
     li p {

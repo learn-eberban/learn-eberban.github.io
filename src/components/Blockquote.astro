@@ -2,8 +2,8 @@
 interface Props { cite: string }
 const { cite: cite } = Astro.props;
 ---
-TODO STYLING
-<blockquote>
+
+<blockquote class="border-slate-600 dark:border-slate-300 border-opacity-50 border-l-4 pl-3">
     <slot />
     <cite>—{cite}</cite>
 </blockquote>
