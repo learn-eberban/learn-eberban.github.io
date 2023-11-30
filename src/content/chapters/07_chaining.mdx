@@ -16,44 +16,44 @@ Chaining is the process of how two side-by-side predicates combine to form a new
 predicate.
 </Info>
 
-Thus far we've only made one-word sentences. Either "pa" and some proposition or
-"pa" and some predicate-turned-proposition with Arity Mismatch Resolution.
+Thus far we've only made one-word sentences, so how do we speak sentences packed
+full of predicates?
 
-So how do we speak sentences packed full of predicates? Well, we start from the
-right and keep chaining two predicates until we've got a one-word sentence, like
-so:
+We take the two right-most predicates, then chain the left to the right. Rinse
+and repeat.
 
-TODO only use a number of predicates equal to the length of the longest sentence in this chapter!
+<Info type="examples">
 `pa [p1 [p2 [p3 [p4 p5]]]]`
 
-Starting from "p4" and "p5", going to "p3" and "p4 p5", and finishing with "p1
-p2 p3 p4 p5", which then gets asserted by "pa". The finer details depend on
-what kind of predicates we're chaining.
+The first chained predicate is "p4 p5", which "p3" chains to, forming
+"p3 p4 p5". This continues until we get the predicate "p1 p2 p3 p4 p5", which
+then gets asserted by "pa".
+</Info>
+
+The actual details of this process depend on the predicates that we're
+chaining.
 
 ## Propositions
 
-Propositions have no overt places, so there's no binding. We chain two propositions
-together using "and" (logical conjunction).
-
-Two propositions chained together become a larger compound proposition. The
-order of this kind of chaining does not matter. E.g., the following sentences
-are equivalent:
+Propositions have no overt places, so there's no binding. We chain two
+propositions together using "and" (logical conjunction) to form a larger
+compound proposition.
 
 <Info type="examples">
 - <DictEntry client:load id="eebgcxilaa" /> {/* cluen */}
 - <DictEntry client:load id="jl7ojeesj9" /> {/* vzoun*/}
 - pa cluen vzoun
-  - "It's a summer evening."
-  - LiterallY: "it is summer and it is evening."
+  - Translation: "It's a summer's evening."
+  - Literally: "It is summer and it is evening."
 - pa vzoun cluen
-  - "It's an evening summer."
+  - Translation: "It's an evening of summer."
   - Literally: "It is evening and it is summer."
-
-TODO: work on the stling. Ensure it aligns with Word Types.
 </Info>
 
-TOD INSERT REACT FLOW CHAINING DIAGRAM. Just connecting cluen vzoun together followed
-below by vzoun cluen together.
+Since we chain with "and", the order does not matter. These example sentences
+are interchangeable.
+
+![proposition chaining](../../tmp/proposition-chaining.png)
 
 Lacking overt places, propositions are limited in what meaning they can express.
 
