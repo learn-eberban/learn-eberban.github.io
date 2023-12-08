@@ -61,7 +61,8 @@ Lacking overt places, propositions are limited in what meaning they can express.
 
 ## Properties
 
-Properties have one overt place, "E". How they're bound depends on the place.
+Properties have one overt place, "E". How they're bound depends on whether it's
+an atom place or a predicate place.
 
 ### Atom places
 
@@ -69,17 +70,14 @@ Atoms are not in Eberban's vocabulary—because they have no intrinsic meaning.
 Instead, we rely on Arity Mismatch Resolution to create them as existential
 atom arguments.
 
-These existential atom arguments are bound to atom places. With each binding, an
-existential atom argument is narrowed by argument quantity and type.
+These existential atom arguments are bound to atom places. With each binding,
+the meaning of an existential atom argument is narrowed by quantity and type.
 
 <Info type="examples">
-TODO, get the word meaning here
-mian cat
-miun sleeps
-zmen white
-zun boy
-za usnobel
-future: coriu is possessed/owned by
+- <DictEntry client:load id="vgeqteao1c" /> {/* mian */}
+- <DictEntry client:load id="mu4oshpucp" /> {/* miun */}
+- <DictEntry client:load id="fdju08ghm9" /> {/* zun */}
+- pa miun zun mian
 
 sleeping white boy cat named Snowbell
 </Info>
@@ -121,10 +119,35 @@ meul (defaults to water rains)
 
 ### Binding with propositions (arity 1 > 0)
 
-## Higher arity predicates
+Propositions chained to properties == arity mismatch:
+Propositions expect an arity of zero, while properties are unary. 
 
-mmmmmm, relations and 3-ary and more
+Properties chained to propositons if atom place unsused
 
+\[E is hungry\] and \[it is evening\]. It ends up being equivalent for these two words. In any order.
+
+## Relations
+
+draft:
+
+Relations have two places. They look different as well. All relations and higher-arity predicates are transitive.
+
+Jargon: transitivity
+
+A predicate's transitivity denotes which of its places chaining selects by default.
+
+A predicate is intransitive if it selects no place or the E place by default. All propositions and properties are intransitive.
+
+A predicate is transitive if it selects the A place by default. All relations and higher arity predicates are transitive.
+
+Relations have two places
+
+We teach how to modify predicates with particles to change this behaviour in the place selection chapter]
+
+A predicate that has two placeses is HUGE 
+atoms -- transi, composes, relates, interacts
+predicates --can connect in different ways (OR)
+atom/predicate -- can comprehend/express propositiosn etc specify filter etc
 ---
 
 ### Which place?
@@ -134,6 +157,8 @@ Talk about syntax = same but semantics depends on type (transitivity talked abou
 
 3-ary and above will be talked about more in place selection (as O, U and
 others aren't exposed t ochaining by default)
+
+### Save higher arity predicates for the Place Selecting chapter
 
 ## Brackets
 
@@ -150,6 +175,6 @@ pa eberban pcien and pa pcien eberban (pan =/= ban -> nonsense -> false)
 
 quantity mismatch
 
-tce tco X
+tce tco 
 
----
+future: coriu, future: zmen (both are relations)
