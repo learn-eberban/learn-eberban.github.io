@@ -26,6 +26,8 @@ full of predicates?
 We take the two right-most predicates, then chain the left to the right. Rinse
 and repeat.
 
+TODO maybe move this to after relatiosn?
+
 <Info type="examples">
 `pa [p1 [p2 [p3 [p4 p5]]]]`
 
@@ -69,65 +71,117 @@ an atom place or a predicate place.
 
 ### Atom places
 
-Atoms are not in Eberban's vocabulary—because they have no intrinsic meaning.
-Instead, we rely on Arity Mismatch Resolution to create them as existential
-atom arguments.
+Atoms have no intrinsic meaning—they're not in Eberban's vocabulary and you
+won't see them in sentences. Instead, we rely on Arity Mismatch Resolution to
+create them as existential atom arguments.
 
-These existential atom arguments are bound to atom places. With each binding,
-the meaning of an existential atom argument is narrowed by quantity and type.
+When the quantity and type of all bound atom places are compatible, the order of
+atom-place properties does not matter. In these example sentences, each atom place has
+the same quantity and type.
 
 <Info type="examples">
-- <DictEntry client:load id="vgeqteao1c" /> {/* mian */}
 - <DictEntry client:load id="mu4oshpucp" /> {/* miun */}
-- <DictEntry client:load id="fdju08ghm9" /> {/* zun */}
-- pa miun zun mian
-
-sleeping white boy cat named Snowbell
+- <DictEntry client:load id="vgeqteao1c" /> {/* mian */}
+- pa miun mian
+  - Translation: "There exists some cat+ that's sleeping."
+  - Literally: "There exists some physical entity+ _e_, which is a cat and is
+  sleeping."
+- pa mian miun
+  - Translation: "There exists some sleeping thing+ which is a cat."
+  - Literally: "There exists some physical entity+ _e_, which is sleeping and is
+  a cat."
 </Info>
 
-TODO set narrowing diagram here
+We can think of binding a predicate to an existential atom argument as
+"atom describing". With each binding, the quantity (e.g., `tce*`), type
+(e.g., `pan`), may be narrowed. In the above example sentences the properties
+produce a new type.
 
-TODO atom chaining (dot to predicate)
+![atom describing](../../tmp/atom-describing.png)
 
-The set of sleeping white boy cats named Snowbell is far narrower than the set
-of all cats.
+Here is a chaining diagram to visualise how two atom-place properties are
+chained together:
 
-Similar to propositions, atom properties can be chained in any order so long as
-the argument quantity and type of each place match up.
+![property chainign](../../tmp/property-chaining.png)
+
+The black dot represents an atom, though this isn't created until there's an
+arity mismatch (e.g., "pa miun mian").
 
 ### Predicate places
 
-When chaining two side-by-side properties with predicate places, the left's "E"
-place takes the right predicate as its argument. Because of this behaviour, the
-order matters.
+When chaining two predicate-place properties, the left's "E" place takes the
+right predicate as its argument. Thus, the order of predicate-place properties
+does matter.
 
-TODO examples
+<Info type="examples">
+- <DictEntry client:load id="lsnj8jjkmu" /> {/* zvaor */}
+- It's funny that E:() is true
+- pa zvaor funny
+  - Translation: "It isn't meant to be funny that there exists some proposition
+  _E_."
+  - Literally: "It is unintentional that it's funny that there exists some
+  proposition _E_."
+</Info>
 
-- funny: it is funny that E:() is true
-- absurd: it is absurd that E:() is true
-- acidental: it is accidental that E:() is true
+We can think of binding predicates to predicate arguments as
+"predicate stacking". Each predicate affects the meaning of all the predicates
+below it.
 
-TODO diagram, figure out what name to call it
+Here's a chaining diagram to visualise how two predicate-place properties are
+chained together: TODO
 
-Because the right predicate is taken as the argument, there's only one arity
-mismatch at the beginning!
+"funny" became a proposition to resolve the arity mismatch.
 
 ### Default binds
 
 Some places are often bound to the same arguments, so Eberban lists these as
-defaults.
+defaults. When using such predicates the order does matter as we can override
+the default binding.
 
-TODO examples
-meul (defaults to water rains)
+<Info type="examples">
+- <DictEntry client:load id="pne1nwyhy8" /> {/* mlial */}
+- <DictEntry client:load id="afkl3d764n" /> {/* meul */}
+- <DictEntry client:load id="ymuvroa9iu" /> {/* pafken */}
+- <DictEntry client:load id="6rko2uu7va" /> {/* cfen */}
+- pa mlial (The air is warm.)
+- pa pafken mlial (There exists some potato+ that is warm.)
+- pa meul (There exists some water+ that is raining.)
+- pa cfen meul (There exists some liquid+ that is raining.)
+</Info>
 
-### Binding with propositions (arity 1 > 0)
+### Binding with propositions
 
-Propositions chained to properties == arity mismatch:
-Propositions expect an arity of zero, while properties are unary. 
+<Info type="reminder" title="Arity mismatch">
+An arity mismatch happens when the expected arity of the left word is less than
+the actual arity of the right.
+</Info>
 
-Properties chained to propositons if atom place unsused
+A proposition (0-ary) chained to a property (1-ary) results in an arity
+mismatch.
 
-\[E is hungry\] and \[it is evening\]. It ends up being equivalent for these two words. In any order.
+A property (1-ary) chained to a proposition (0-ary) results in an unused "E"
+place.
+
+When it's only the proposition and the property, you can get the same meaning
+for any order.
+
+<Info type="examples">
+- pa mian vzoun (There exists some cat+ and it is evening.)
+- pa vzoun mian (It is evening and there exists some cat+.)
+</Info>
+
+Now let's say we have a sentence of two propositions and one property. Now the
+order matters. When the proposition is between the two properties, Arity
+Mismatch Resolution happens twice.
+
+<Info type="examples">
+pa miun vzoun mian
+
+There exists some physical entity+ _e2_, which is sleeping; it is evening, and
+there exists some physical entity _e1_, which is a cat.
+</Info>
+
+First "vzoun" chains to "mian", and then "miun" chains to "vzoun mian".
 
 ## Relations
 
@@ -151,6 +205,7 @@ A predicate that has two placeses is HUGE
 atoms -- transi, composes, relates, interacts
 predicates --can connect in different ways (OR)
 atom/predicate -- can comprehend/express propositiosn etc specify filter etc
+
 ---
 
 ### Which place?
@@ -181,3 +236,5 @@ quantity mismatch
 tce tco 
 
 future: coriu, future: zmen (both are relations)
+
+TODO: move quantity annotation from Eberban Predicates to Arity Mismatch Resolution
