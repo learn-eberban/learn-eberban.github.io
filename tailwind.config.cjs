@@ -7,6 +7,13 @@ module.exports = {
 			"serif": ["Bitter", "serif"],
 			"mono": ["League Mono"],
 		},
+		listStyleType: {
+			alpha: "lower-alpha",
+			none: "none",
+			disc: "disc",
+			decimal: "decimal",
+			roman: "lower-roman",
+		},
 		extend: {},
 	},
 	plugins: [],

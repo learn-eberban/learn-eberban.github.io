@@ -84,31 +84,51 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
         -webkit-tap-highlight-color: transparent;
     }
 
-    li {
-        @apply list-none list-inside mb-2;
-    }
-
-    ul li {
-        @apply list-disc;
-    }
-
-    ol li {
-        @apply list-decimal;
-    }
-
     ol ol,
+    ol ul,
+    ul ol,
     ul ul {
         @apply indent-4;
     }
 
-    ol ol ol {
-        @apply indent-8
+    ol ol ol,
+    ol ol ul,
+    ol ul ol,
+    ol ul ul,
+    ul ol ol,
+    ul ol ul,
+    ul ul ol,
+    ul ul ul {
+        @apply indent-8;
     }
 
-    ol ol li {
-        @apply [list-style-type:lower-alpha] mb-1;
+    ol ol ol ol,
+    ol ol ol ul,
+    ol ol ul ol,
+    ol ol ul ul,
+    ol ul ol ol,
+    ol ul ol ul,
+    ol ul ul ol,
+    ol ul ul ul,
+    ul ol ol ol,
+    ul ol ol ul,
+    ul ol ul ol,
+    ul ol ul ul,
+    ul ul ol ol,
+    ul ul ol ul,
+    ul ul ul ol,
+    ul ul ul ul {
+        @apply indent-12;
     }
-    
+
+    li {
+        @apply list-inside mb-2;
+    }
+
+    li > li:last-child {
+        @apply mb-0;
+    }
+
     li p {
         /* 
           Using italics in a markdown-generated list item surrounds it with <p>
@@ -116,6 +136,20 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
         */
         @apply inline;
     }
+
+    ul > li {
+        @apply list-disc;
+    }
+
+    ol > li {
+        @apply list-decimal;
+    }
+
+
+    ol ol > li {
+        @apply list-alpha;
+    }
+
 
     p {
         @apply leading-relaxed;
