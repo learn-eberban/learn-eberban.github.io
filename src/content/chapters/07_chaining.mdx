@@ -102,7 +102,7 @@ produce a new type.
 Here is a chaining diagram to visualise how two atom-place properties are
 chained together:
 
-![property chainign](../../tmp/property-chaining.png)
+![atom-place property chaining](../../tmp/atom-property-chaining.png)
 
 The black dot represents an atom, though this isn't created until there's an
 arity mismatch (e.g., "pa miun mian").
@@ -115,7 +115,7 @@ does matter.
 
 <Info type="examples">
 - <DictEntry client:load id="lsnj8jjkmu" /> {/* zvaor */}
-- It's funny that E:() is true
+- <DictEntry client:load id="atpt42rrzm" /> {/* fcaon */}
 - pa zvaor funny
   - Translation: "It isn't meant to be funny that there exists some proposition
   _E_."
@@ -128,9 +128,12 @@ We can think of binding predicates to predicate arguments as
 below it.
 
 Here's a chaining diagram to visualise how two predicate-place properties are
-chained together: TODO
+chained together:
 
-"funny" became a proposition to resolve the arity mismatch.
+![predicate-place property chaining](../../tmp/predicate-property-chaining.png)
+
+The existential proposition argument "some proposition" was created to resolve
+the arity mismatch.
 
 ### Default binds
 
@@ -152,8 +155,8 @@ the default binding.
 ### Binding with propositions
 
 <Info type="reminder" title="Arity mismatch">
-An arity mismatch happens when the expected arity of the left word is less than
-the actual arity of the right.
+Given two side-by-side words, an arity mismatch occurs when the expected arity
+of the left is less than the actual arity of the right.
 </Info>
 
 A proposition (0-ary) chained to a property (1-ary) results in an arity
@@ -177,8 +180,8 @@ Mismatch Resolution happens twice.
 <Info type="examples">
 pa miun vzoun mian
 
-There exists some physical entity+ _e2_, which is sleeping; it is evening, and
-there exists some physical entity _e1_, which is a cat.
+There exists some physical entity+ _e2_, which is sleeping, and it is evening,
+and there exists some physical entity _e1_, which is a cat.
 </Info>
 
 First "vzoun" chains to "mian", and then "miun" chains to "vzoun mian".
