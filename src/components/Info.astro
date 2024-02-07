@@ -53,7 +53,7 @@ const config: InfoConfig = (() => {
    Jargon must be explained. Vocabulary must be introduced.
 */}
 <div class={`info ${[config.lightStyles, config.darkStyles, config.borderStyles].join(" ")}`}>
-    <p><strong>{config.heading}</strong></p>
+    <p class="heading"><strong>{config.heading}</strong></p>
     <slot />
 </div>
 
@@ -61,18 +61,20 @@ const config: InfoConfig = (() => {
     @tailwind components;
     @layer components {
         .info {
+            @apply my-8 p-4;
             /* From, via, and to are configured, fade to transparent automatically. */
             @apply bg-gradient-to-b;
-            @apply pt-4 px-4 pb-4;
-            @apply my-8;
             @apply border-solid border-x-2 border-t-4 border-b-0 rounded-t-2xl;
+        }
+        .info p.heading  {
+            @apply mb-6;
         }
         /* 
           .block has been extracted so that the last paragraph of this <div> 
           has no margin-bottom. 
         */
         .info p, .info strong {
-            @apply last:mb-0 bg-transparent;
+            @apply bg-transparent;
         }
     }
 </style>

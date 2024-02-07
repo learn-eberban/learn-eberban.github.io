@@ -13,7 +13,7 @@ const spaceCount = spaces ?? 4;
 const showTable = hasTable ?? true;
 ---
 <>
-    <span class="block mb-4">
+    <span class="block mt-6">
         {text}
         <pre class="inline whitespace-pre-wrap">{Array(spaceCount).join(" ")}</pre>
         <code class="whitespace-pre"><slot /></code>
@@ -21,15 +21,11 @@ const showTable = hasTable ?? true;
     {
         showTable
         &&
-        <details class="symbols p-4 my-6 border-2 border-solid border-gray-200 dark:border-gray-800">
+        <details class="symbols mt-4 mb-6 py-4 px-2 border-2 border-solid border-gray-200 dark:border-gray-800">
             <summary>Symbols:</summary>
             <Table />
         </details>
     }
 </>
 <style is:global>
-    details.symbols table {
-        margin-top: 1rem;
-        margin-bottom: 0.5rem;
-    }
 </style>

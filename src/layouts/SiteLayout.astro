@@ -76,9 +76,10 @@ const docTitle = (() => {
                 <main>
                     <article><slot /></article>
                 </main>
-                <div class="h-1">
-                    {prevHref && <a class="text-3xl hover:no-underline select-none float-left" href={prevHref}>⬅️</a>}
-                    {nextHref && <a class="text-3xl hover:no-underline select-none float-right" href={nextHref}>➡️</a>}
+                <div class="mt-8 flex w-full">
+                    {/* auto-margins instead of justify space-between as it works when only one item is present */}
+                    {prevHref && <a class="mr-auto text-3xl hover:no-underline select-none" href={prevHref}>⬅️</a>}
+                    {nextHref && <a class="ml-auto text-3xl hover:no-underline select-none" href={nextHref}>➡️</a>}
                 </div>
                 <hr>
                 <footer>

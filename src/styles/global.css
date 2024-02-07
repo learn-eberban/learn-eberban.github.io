@@ -18,52 +18,36 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
     }
 }
 @layer base {
-    /* GROUPED STYLES */
     html, body {
         @apply font-serif text-gray-700 dark:text-gray-200;
+        @apply leading-relaxed text-[0.95rem] md:text-base;
         /* Must be min height, not fixed, else scroll event does not work.  */
         @apply min-h-screen;
     }
 
     h1, h2, h3, h4, h5, h6 {
         @apply font-bold;
-        @apply scroll-mt-14;
+        @apply scroll-mt-12; /* This matches the <nav> height. */
     }
 
     h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-        @apply text-inherit;
-        @apply dark:text-inherit;
+        @apply text-inherit dark:text-inherit;
     }
-
-    h1, h2, h3, h4, h5, h6, p, ul, ol, hr, footer {
-        @apply mb-4;
-    }
-    
-    li, p {
-        @apply last:mb-0;
-    }
-
-    /* SINGLE STYLES */
     
     h1 {
-        @apply pt-2 text-2xl md:text-3xl;
+        @apply mt-1 mb-8 text-2xl md:text-3xl;
     }
 
     h2 {
-        @apply text-xl md:text-2xl mt-8;
+        @apply my-6 text-xl md:text-2xl;
     }
 
     h3 {
-        @apply text-lg md:text-xl mt-6;
+        @apply my-4 text-lg md:text-xl;
     }
 
-    li h3 {
-        @apply inline; /* Specifically for 05_reading_the_dictionary.mdx*/
-    }
-
-    hr {
-        @apply h-1 bg-gray-200 border-0 mt-8;
-        @apply dark:bg-gray-700;
+    p {
+        @apply mt-6 first:mt-0;
     }
 
     a {
@@ -84,49 +68,25 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
         -webkit-tap-highlight-color: transparent;
     }
 
-    ol ol,
-    ol ul,
-    ul ol,
-    ul ul {
-        @apply indent-4;
+    *:is(ol, ul) {
+        @apply my-6;
     }
 
-    ol ol ol,
-    ol ol ul,
-    ol ul ol,
-    ol ul ul,
-    ul ol ol,
-    ul ol ul,
-    ul ul ol,
-    ul ul ul {
+    *:is(ol, ul) *:is(ol, ul) {
+        @apply indent-4 mt-2 mb-0;
+    }
+
+    *:is(ol, ul) *:is(ol, ul) *:is(ol, ul) {
         @apply indent-8;
     }
 
-    ol ol ol ol,
-    ol ol ol ul,
-    ol ol ul ol,
-    ol ol ul ul,
-    ol ul ol ol,
-    ol ul ol ul,
-    ol ul ul ol,
-    ol ul ul ul,
-    ul ol ol ol,
-    ul ol ol ul,
-    ul ol ul ol,
-    ul ol ul ul,
-    ul ul ol ol,
-    ul ul ol ul,
-    ul ul ul ol,
-    ul ul ul ul {
+    *:is(ol, ul) *:is(ol, ul) *:is(ol, ul) *:is(ol, ul) {
         @apply indent-12;
     }
 
     li {
-        @apply list-inside mb-2;
-    }
-
-    li > li:last-child {
-        @apply mb-0;
+        @apply list-inside;
+        @apply leading-loose mt-1 first:mt-0;
     }
 
     li p {
@@ -145,18 +105,12 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
         @apply list-decimal;
     }
 
-
     ol ol > li {
         @apply list-alpha;
     }
 
-
-    p {
-        @apply leading-relaxed;
-    }
-
-    p img {
-        @apply mx-auto;
+    details table {
+        @apply mt-4 mb-0;
     }
 
     table {
@@ -169,17 +123,18 @@ div.react-flow__pane, div.react-flow__node, div.react-flow__node:focus {
         @apply dark:border-gray-800;
     }
 
-    td, th {
-        @apply px-2;
-    }
-
-    th {
-        @apply py-1;
-    }
-
     tbody tr:nth-child(odd) td,
     tbody tr:nth-child(odd) th {
         @apply bg-gray-100;
         @apply dark:bg-gray-900;
+    }
+
+    hr {
+        @apply border-0 mb-4 h-1;
+        @apply bg-gray-200 dark:bg-gray-700;
+    }
+
+    footer {
+        @apply mb-4;
     }
 }
