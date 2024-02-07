@@ -46,24 +46,29 @@ can make propositions more complex with connectives.
 Now that we know of these connections, we can reason. Reasoning also happens all
 the time in everyday speech. Take a look:
 
-- _Has she been to Australia?_
-- _Yeah, she's been to Uluru._
-{/* List separator */}
-- _Finally, no more stairs! Looks like I've made it to the top floor._
+<Info type="examples">
+"Has she been to Australia?"<br/>
+"Yeah, she's been to Uluru."
+
+_Finally, no more stairs! Looks like I've made it to the top floor._
+</Info>
 
 You can connect as many propositions as you'd like and still have a proposition.
 For example:
 
-<Latex block formula="(\text{The sky is clear.} ∧ ((\text{It's night.} ∧ ¬(\text{It's too cold.})) ∨ \text{It's the golden hour.})) → \text{The old man goes for a walk.}" />
+<Latex 
+    block 
+    formula="(\\ \quad \text{The sky is clear.} \\ \quad ∧ \\ \quad ( \\ \qquad (\text{It's night.} ∧ ¬(\text{It's too cold.})) \\ \qquad ∨ \\ \qquad \text{It's the golden hour.} \\ \quad ) \\ ) \\ → \\ \text{The old man goes for a walk.}"
+/>
 
-That's a little wordy, let's denote each constituent proposition as a variable.
-Let's see this complex proposition using variables.
+This is so wordy that we've spread this across several lines! Let's instead
+denote each constituent proposition as a variable and see what it looks like.
 
 <Info type="jargon" title="Variables">
 A variable is anything that can vary in value. You can use variables to
 represent absolutely anything.
 
-By convention, uppercase variables denote prepositions and predicates while
+By convention, uppercase variables denote propositions and predicates while
 lowercase variables denote entities (things that exist).
 </Info>
 
@@ -128,8 +133,9 @@ we have to quantify. Here's how you talk about all the travellers:
     </span>
 </Latex>
 
-The domain of discourse is the set of all possible values that t can range over.
-So, whenever we quantify, we need the domain of discourse.
+The domain of discourse is the set of all possible values that
+<Latex formula="t" /> can range over. So, whenever we quantify, we need the
+domain of discourse.
 
 <Info type="jargon" title="Sets">
 A set is an unordered collection of distinct things. These things can be
@@ -183,21 +189,23 @@ arity.
 <Info type="jargon" title="Arity">
 Arity refers to the number of arguments a predicate has.
 
-A unary predicate takes one argument, a binary, two; a ternary, three; and an
-n-ary, n-arguments. 
-
 A 0-ary predicate is a proposition. Propositions have no variables, e.g. <Latex formula="\text{RAINING}" />.
 
-A unary predicate is also called a property. Properties describe entities, like
-<Latex formula="\text{IS\_TALL}(p)" /> or <Latex formula="\text{IS\_TOP\_FLOOR}(t)" />.
+A unary predicate takes one argument and is also called a property. Properties
+describe entities, like <Latex formula="\text{IS\_TALL}(p)" /> or
+<Latex formula="\text{IS\_TOP\_FLOOR}(t)" />.
+ 
+A binary predicate takes two arguments and is also called a relation. We relate
+two entities to each other like
+<Latex formula="\text{IS\_MOTHER\_OF}(x,y)" /> or
+<Latex formula="\text{IS\_ABOVE}(f,t)" />.
 
-A binary predicate is also called a relation. We relate two entities to each
-other, like <Latex formula="\text{IS\_MOTHER\_OF}(x,y)" /> or <Latex formula="\text{IS\_ABOVE}(f,t)" />.
+A ternary predicate takes three arguments, and an n-ary, n-arguments.
 </Info>
 
 ## Higher-order Logic
 
-If we see predicates from Predicate Logic as tools to talk about the world more
+If predicates of Predicate Logic are tools to talk about the world more
 specifically, then these tools are limited. So far, we've only been using
 entities as variables.
 
